@@ -14,65 +14,126 @@
 #    Object Properties
 #################################################################
 
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_ONA
+:has_ONA rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart> ;
+         owl:inverseOf :is_ONA_of ;
+         rdf:type owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_OVA
+:has_OVA rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart> ;
+         owl:inverseOf :is_OVA_of ;
+         rdf:type owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_episode
+:has_episode rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart> ;
+             owl:inverseOf :is_episode_of ;
+             rdf:type owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_movie
+:has_movie rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart> ;
+           owl:inverseOf :is_movie_of ;
+           rdf:type owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_special
+:has_special rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart> ;
+             owl:inverseOf :is_special_of ;
+             rdf:type owl:FunctionalProperty .
+
+
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/contiene_episodio
 :contiene_episodio rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> .
-
-
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/contiene_stagione
-:contiene_stagione rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> .
+                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> ;
+                   rdf:type owl:FunctionalProperty .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/has_season
 :has_season rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart> ;
-            owl:inverseOf :is_season_of .
+            owl:inverseOf :is_season_of ;
+            rdf:type owl:FunctionalProperty .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/has_studio
 :has_studio rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty .
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/has_type
 :has_type rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf owl:topObjectProperty .
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdf:type owl:FunctionalProperty .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_ONA_of
 :is_ONA_of rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+           rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> ;
+           rdf:type owl:InverseFunctionalProperty ;
+           rdfs:domain :Episodio ;
+           rdfs:range :ONA .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_OVA_of
 :is_OVA_of rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+           rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> ;
+           rdf:type owl:InverseFunctionalProperty ;
+           rdfs:domain :Episodio ;
+           rdfs:range :OVA .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_episode_of
 :is_episode_of rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> ;
+               rdf:type owl:InverseFunctionalProperty ;
+               rdfs:domain :Episodio ;
+               rdfs:range :Stagione .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_movie_of
 :is_movie_of rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> ;
+             rdf:type owl:InverseFunctionalProperty ;
+             rdfs:domain :Episodio ;
+             rdfs:range :Movie .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_season_of
 :is_season_of rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+              rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> ;
+              rdf:type owl:InverseFunctionalProperty ;
+              rdfs:domain :Stagione ;
+              rdfs:range :Anime .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_special_of
 :is_special_of rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> ;
+               rdf:type owl:InverseFunctionalProperty ;
+               rdfs:domain :Episodio ;
+               rdfs:range :Special .
 
 
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#episode_length
+:episode_length rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:int .
+
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/anime_title
 :anime_title rdf:type owl:DatatypeProperty ;
@@ -197,12 +258,8 @@
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Stagione
 :Stagione rdf:type owl:Class ;
-          rdfs:subClassOf :Anime .
-
-
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/StagioneList
-:StagioneList rdf:type owl:Class ;
-              rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> .
+          rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ,
+                          :Anime .
 
 
 #################################################################
@@ -218,18 +275,22 @@
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT_Episodio1
 :AOT_Episodio1 rdf:type owl:NamedIndividual ,
-                        :Episodio ;
-               :is_episode_of :AOT_Stagione1 .
+                        :Episodio ,
+                        :Episodio_Normale ;
+               :is_episode_of :AOT_Stagione1 ;
+               :episode_length "PT24M"^^xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT_Episodio2
 :AOT_Episodio2 rdf:type owl:NamedIndividual ,
-                        :Episodio ;
+                        :Episodio ,
+                        :Episodio_Normale ;
                :is_episode_of :AOT_Stagione1 .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT_Stagione1
 :AOT_Stagione1 rdf:type owl:NamedIndividual ,
+                        <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#2Cours> ,
                         :Anime ,
                         :Stagione ;
                :is_season_of :AOT .
@@ -294,10 +355,23 @@
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Stagione_1
-:Stagione_1 rdf:type owl:NamedIndividual ,
-                     :StagioneList ;
+:Stagione_1 rdf:type owl:NamedIndividual ;
             <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> :Puntata_1 ,
                                                                            :Puntata_2 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Movie
+                :ONA
+                :OVA
+                :Special
+                :Stagione
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
