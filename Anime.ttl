@@ -7,100 +7,297 @@
 @base <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/> .
 
 <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime> rdf:type owl:Ontology ;
-                                                                 owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> .
+                                                                 owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ,
+                                                                             <http://www.ontologydesignpatterns.org/cp/owl/partof.owl> .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_season
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/contiene_episodio
+:contiene_episodio rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/contiene_stagione
+:contiene_stagione rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/has_season
 :has_season rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty .
+            rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart> ;
+            owl:inverseOf :is_season_of .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_studio
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/has_studio
 :has_studio rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#has_type
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/has_type
 :has_type rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_ONA_of
+:is_ONA_of rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_OVA_of
+:is_OVA_of rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_episode_of
+:is_episode_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_movie_of
+:is_movie_of rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_season_of
+:is_season_of rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/is_special_of
+:is_special_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/anime_title
+:anime_title rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/popularity
+:popularity rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/score
+:score rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/source
+:source rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Anime
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#2Cours
+<http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#2Cours> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf :Stagione ;
+                                                                       owl:disjointWith :SingleCour .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Anime
 :Anime rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Puntata
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Anno
+:Anno rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Avventura
+:Avventura rdf:type owl:Class ;
+           rdfs:subClassOf :Genere .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Azione
+:Azione rdf:type owl:Class ;
+        rdfs:subClassOf :Genere .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Cortometraggio
+:Cortometraggio rdf:type owl:Class ;
+                rdfs:subClassOf :Episodio .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Episodio
+:Episodio rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Episodio_Normale
+:Episodio_Normale rdf:type owl:Class ;
+                  rdfs:subClassOf :Episodio .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Fantasy
+:Fantasy rdf:type owl:Class ;
+         rdfs:subClassOf :Genere .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Genere
+:Genere rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Lungometraggio
+:Lungometraggio rdf:type owl:Class ;
+                rdfs:subClassOf :Episodio .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Movie
+:Movie rdf:type owl:Class ;
+       rdfs:subClassOf :Anime .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/ONA
+:ONA rdf:type owl:Class ;
+     rdfs:subClassOf :Anime .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/OVA
+:OVA rdf:type owl:Class ;
+     rdfs:subClassOf :Anime .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Puntata
 :Puntata rdf:type owl:Class ;
          rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Stagione
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Romance
+:Romance rdf:type owl:Class ;
+         rdfs:subClassOf :Genere .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Scifi
+:Scifi rdf:type owl:Class ;
+       rdfs:subClassOf :Genere .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Season
+:Season rdf:type owl:Class ;
+        rdfs:subClassOf :Anno .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/SingleCour
+:SingleCour rdf:type owl:Class ;
+            rdfs:subClassOf :Stagione .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Special
+:Special rdf:type owl:Class ;
+         rdfs:subClassOf :Anime .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Stagione
 :Stagione rdf:type owl:Class ;
-          rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> .
+          rdfs:subClassOf :Anime .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Tipo
-:Tipo rdf:type owl:Class .
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/StagioneList
+:StagioneList rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#AOT
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT
 :AOT rdf:type owl:NamedIndividual ,
               :Anime ;
-     :has_season :Stagione_1 ;
      :has_type :Fantasy ,
                :Seinen .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Fantasy
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT_Episodio1
+:AOT_Episodio1 rdf:type owl:NamedIndividual ,
+                        :Episodio ;
+               :is_episode_of :AOT_Stagione1 .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT_Episodio2
+:AOT_Episodio2 rdf:type owl:NamedIndividual ,
+                        :Episodio ;
+               :is_episode_of :AOT_Stagione1 .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT_Stagione1
+:AOT_Stagione1 rdf:type owl:NamedIndividual ,
+                        :Anime ,
+                        :Stagione ;
+               :is_season_of :AOT .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/AOT_Stagione2
+:AOT_Stagione2 rdf:type owl:NamedIndividual ,
+                        :Stagione ;
+               :is_season_of :AOT .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Autunnale
+:Autunnale rdf:type owl:NamedIndividual ,
+                    :Season .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Estiva
+:Estiva rdf:type owl:NamedIndividual ,
+                 :Season .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Fantasy
 :Fantasy rdf:type owl:NamedIndividual ,
-                  :Tipo .
+                  :Genere .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#One_Punch_Man
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Invernale
+:Invernale rdf:type owl:NamedIndividual ,
+                    :Season .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/One_Punch_Man
 :One_Punch_Man rdf:type owl:NamedIndividual ,
                         :Anime .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Puntata_1
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Primaverile
+:Primaverile rdf:type owl:NamedIndividual ,
+                      :Season .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Puntata_1
 :Puntata_1 rdf:type owl:NamedIndividual ,
                     :Puntata ;
            owl:differentFrom :Puntata_2 ;
            <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Puntata_2 .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Puntata_2
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Puntata_2
 :Puntata_2 rdf:type owl:NamedIndividual ,
                     :Puntata .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Seinen
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Seinen
 :Seinen rdf:type owl:NamedIndividual ,
-                 :Tipo .
+                 :Genere .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Shonen
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Shonen
 :Shonen rdf:type owl:NamedIndividual ,
-                 :Tipo .
+                 :Genere .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime#Stagione_1
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/Anime/Stagione_1
 :Stagione_1 rdf:type owl:NamedIndividual ,
-                     :Stagione ;
+                     :StagioneList ;
             <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> :Puntata_1 ,
-                                                                           :Puntata_2 ;
-            <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> :Puntata_1 ;
-            <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem> :Puntata_2 .
+                                                                           :Puntata_2 .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
