@@ -1,16 +1,71 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/"
      xml:base="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:LoL="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl"/>
+     xmlns:vann="http://www.semanticweb.org/gfazor/ontologies/LOL#vann:">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL">
+        <dc:creator>Andrea Paletto</dc:creator>
+        <dc:creator>Gabriele Russo</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-12T09:00:00</dc:date>
+        <dc:description xml:lang="it">Ontologia del gioco League of Legends</dc:description>
+        <dc:title>League of Legends</dc:title>
+        <vann:preferredNamespacePrefix>lol</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>???</vann:preferredNamespaceUri>
+        <rdfs:label xml:lang="en">LOL</rdfs:label>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#vann:preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#vann:preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#vann:preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#vann:preferredNamespaceUri"/>
     
 
 
@@ -28,10 +83,10 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ability_of -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ability_of">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
     </owl:ObjectProperty>
     
 
@@ -61,7 +116,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#contains_keystone -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#contains_keystone">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#keystone_in_path"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
@@ -72,7 +127,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#contains_rune -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#contains_rune">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#in_path"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Runes"/>
@@ -83,8 +138,8 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
     </owl:ObjectProperty>
     
@@ -93,7 +148,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_keystone -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_keystone">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_keystone_of"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
@@ -124,7 +179,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_rune -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_rune">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_rune_of"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Runes"/>
@@ -145,7 +200,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_shard -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_shard">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_shard_of"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Shards"/>
@@ -156,7 +211,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entities"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
     </owl:ObjectProperty>
     
@@ -165,7 +220,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#in_path -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#in_path">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Runes"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
     </owl:ObjectProperty>
@@ -175,7 +230,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_keystone_of -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_keystone_of">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
     </owl:ObjectProperty>
@@ -185,7 +240,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_rune_of -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_rune_of">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Runes"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
     </owl:ObjectProperty>
@@ -195,7 +250,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_shard_of -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_shard_of">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Shards"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
     </owl:ObjectProperty>
@@ -205,7 +260,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#keystone_in_path -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#keystone_in_path">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
     </owl:ObjectProperty>
@@ -305,7 +360,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#played_in_map">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
     </owl:ObjectProperty>
     
 
@@ -315,7 +370,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#played_on_map">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
     </owl:ObjectProperty>
     
 
@@ -406,6 +461,18 @@
     
 
 
+    <!-- ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart -->
+
+    <owl:ObjectProperty rdf:about="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
+    
+
+
+    <!-- ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -431,7 +498,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_price">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     </owl:DatatypeProperty>
     
@@ -441,7 +508,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#lore">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -481,7 +548,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#release_date">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
@@ -508,6 +575,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="it">Rappresenta le abilità utilizzabili da un campione</rdfs:comment>
+        <rdfs:label xml:lang="it">Abilità</rdfs:label>
     </owl:Class>
     
 
@@ -516,6 +585,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Assassin">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
+        <rdfs:comment xml:lang="en">Represents champions with class Assassin</rdfs:comment>
+        <rdfs:label xml:lang="en">Assassin</rdfs:label>
     </owl:Class>
     
 
@@ -534,6 +605,8 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
+        <rdfs:comment xml:lang="en">Represents stats that are correlated to attack damage</rdfs:comment>
+        <rdfs:label xml:lang="en">Attack</rdfs:label>
     </owl:Class>
     
 
@@ -542,13 +615,15 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Bruiser">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
+        <rdfs:comment xml:lang="en">Represents champions with class Bruiser</rdfs:comment>
+        <rdfs:label xml:lang="en">Bruiser</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni -->
+    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni">
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -570,7 +645,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entities"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
+        <rdfs:comment xml:lang="it">Rappresenta entità di tipo campione</rdfs:comment>
+        <rdfs:label xml:lang="it">Campione</rdfs:label>
     </owl:Class>
     
 
@@ -578,7 +655,9 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
+        <rdfs:comment xml:lang="it">Rappresenta le classi di un campione</rdfs:comment>
+        <rdfs:label xml:lang="it">Classe</rdfs:label>
     </owl:Class>
     
 
@@ -597,14 +676,18 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
+        <rdfs:comment xml:lang="en">Represents defensive statistics</rdfs:comment>
+        <rdfs:label xml:lang="en">Defense</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entities -->
+    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entities">
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="en">Represents entities in game</rdfs:comment>
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
     </owl:Class>
     
 
@@ -614,13 +697,18 @@
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Runes"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Other_Runes"/>
+        <rdfs:comment xml:lang="en">Represents a rune of type keystone</rdfs:comment>
+        <rdfs:label xml:lang="en">Keystone</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends">
+        <rdfs:comment xml:lang="it">Rappresenta il gioco League of Legends</rdfs:comment>
+        <rdfs:label xml:lang="en">League of Legends</rdfs:label>
+    </owl:Class>
     
 
 
@@ -633,7 +721,7 @@
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#picked_champion"/>
                         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#picked_rune_page"/>
@@ -648,17 +736,19 @@
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#bought_objects"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivali"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivale"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#bought_objects"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</owl:maxQualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Role"/>
+        <rdfs:comment xml:lang="en">Represents the pick, the runes and the items choosen by a player in a game</rdfs:comment>
+        <rdfs:label xml:lang="en">Loadout</rdfs:label>
     </owl:Class>
     
 
@@ -667,6 +757,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mage">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
+        <rdfs:comment xml:lang="en">Represents champions with class Mage</rdfs:comment>
+        <rdfs:label xml:lang="en">Mage</rdfs:label>
     </owl:Class>
     
 
@@ -684,14 +776,18 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
+        <rdfs:comment xml:lang="en">Represents statistics correlated with magic damage</rdfs:comment>
+        <rdfs:label xml:lang="en">Magic</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe -->
+    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe">
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="it">Rappresenta le mappe presenti nel gioco</rdfs:comment>
+        <rdfs:label xml:lang="it">Mappa</rdfs:label>
     </owl:Class>
     
 
@@ -700,6 +796,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Marksman">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
+        <rdfs:comment xml:lang="en">Represents champions with class Marksman</rdfs:comment>
+        <rdfs:label xml:lang="en">Marksman</rdfs:label>
     </owl:Class>
     
 
@@ -718,10 +816,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#played_on_map"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Event"/>
+        <rdfs:comment xml:lang="en">Represents a game match played</rdfs:comment>
+        <rdfs:label xml:lang="en">Match</rdfs:label>
     </owl:Class>
     
 
@@ -752,6 +852,8 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ParticipantRole"/>
+        <rdfs:comment xml:lang="en">Represents the association between a match, the players that play the match, the roles of the players and their Loadouts</rdfs:comment>
+        <rdfs:label xml:lang="en">Match_role</rdfs:label>
     </owl:Class>
     
 
@@ -762,10 +864,12 @@
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#played_in_map"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="it">Rappresenta le modalità di gioco presenti</rdfs:comment>
+        <rdfs:label xml:lang="it">Modalità</rdfs:label>
     </owl:Class>
     
 
@@ -774,6 +878,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità_a_rotazione">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità"/>
+        <rdfs:comment xml:lang="it">Rappresenta le modalità di gioco non permanenti</rdfs:comment>
+        <rdfs:label xml:lang="it">Modalità_a_rotazione</rdfs:label>
     </owl:Class>
     
 
@@ -782,6 +888,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Movement">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
+        <rdfs:comment xml:lang="en">Represents movement speed statistics</rdfs:comment>
+        <rdfs:label xml:lang="en">Movement</rdfs:label>
     </owl:Class>
     
 
@@ -789,14 +897,16 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#NPC -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#NPC">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entities"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
+        <rdfs:comment xml:lang="en">Represents Non Playable Character (NPC) type of entity</rdfs:comment>
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti -->
+    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti">
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto">
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat"/>
@@ -804,16 +914,20 @@
                 <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entities"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
+        <rdfs:comment xml:lang="it">Rappresenta entità di tipo oggetto, acquistabili all&apos;interno del gioco</rdfs:comment>
+        <rdfs:label xml:lang="it">Oggetto</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti_Rimossi -->
+    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto_Rimosso -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti_Rimossi">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivali"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto_Rimosso">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivale"/>
+        <rdfs:comment xml:lang="it">Rappresenta un oggetto non acquistabile nella patch corrente</rdfs:comment>
+        <rdfs:label xml:lang="it">Oggetto_Rimosso</rdfs:label>
     </owl:Class>
     
 
@@ -822,6 +936,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Other_Runes">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Runes"/>
+        <rdfs:comment xml:lang="en">Represents normal runes</rdfs:comment>
+        <rdfs:label xml:lang="en">Other_Runes</rdfs:label>
     </owl:Class>
     
 
@@ -836,6 +952,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Passiva">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
+        <rdfs:comment xml:lang="it">Rappresenta le abilità di un campione che sono considerate passive</rdfs:comment>
+        <rdfs:label xml:lang="it">Passiva</rdfs:label>
     </owl:Class>
     
 
@@ -855,6 +973,8 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="en">Represents the rune Paths present in the game</rdfs:comment>
+        <rdfs:label xml:lang="en">Path</rdfs:label>
     </owl:Class>
     
 
@@ -963,10 +1083,12 @@
     
 
 
-    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivali -->
+    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivale -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivali">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
+        <rdfs:comment xml:lang="it">Oggetto di tipo stivale</rdfs:comment>
+        <rdfs:label xml:lang="it">Stivale</rdfs:label>
     </owl:Class>
     
 
@@ -999,6 +1121,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Ultimate">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
+        <rdfs:comment xml:lang="en">Represents Champion ability of type ultimate</rdfs:comment>
+        <rdfs:label xml:lang="en">Ultimate</rdfs:label>
     </owl:Class>
     
 
@@ -1111,7 +1235,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Deadmans_plate -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Deadmans_plate">
-        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
     </owl:NamedIndividual>
     
 
@@ -1160,7 +1284,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Howling_Abyss -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Howling_Abyss">
-        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
     </owl:NamedIndividual>
     
 
@@ -1168,7 +1292,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Infinity_Edge -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Infinity_Edge">
-        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
         <LoL:has_stat rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Damage"/>
     </owl:NamedIndividual>
     
@@ -1261,7 +1385,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rabadons_deathcap -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rabadons_deathcap">
-        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
     </owl:NamedIndividual>
     
 
@@ -1301,7 +1425,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Summoners_Rift -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Summoners_Rift">
-        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappe"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
     </owl:NamedIndividual>
     
 
@@ -1427,9 +1551,9 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campioni"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#NPC"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetti"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
