@@ -87,6 +87,7 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
+
     </owl:ObjectProperty>
     
 
@@ -1006,6 +1007,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune"/>
+        <rdfs:comment xml:lang="it">Via delle rune</rdfs:comment>
+        <rdfs:label xml:lang="it">Path_Rune</rdfs:label>
     </owl:Class>
     
 
@@ -1015,20 +1018,26 @@
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player">
         <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q5276395"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object"/>
+        <rdfs:comment xml:lang="it">Rappresentanta il giocatore che partecipa al gioco</rdfs:comment>
+        <rdfs:label xml:lang="it">Player</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Role -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Role"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Role">
+        <rdfs:comment xml:lang="it">Ruolo scelto dal giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Role</rdfs:label>
+    </owl:Class>
 
 
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="it">Runa scelta dal giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Rune</rdfs:label>
     </owl:Class>
     
 
@@ -1072,6 +1081,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="it">Insieme di rune scelte dal giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Rune_Page</rdfs:label>
     </owl:Class>
     
 
@@ -1080,6 +1091,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Ruoli">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Role"/>
+        <rdfs:comment xml:lang="it">Ruoli disponibili</rdfs:comment>
+        <rdfs:label xml:lang="it">Ruoli</rdfs:label>
     </owl:Class>
     
 
@@ -1088,6 +1101,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Shard">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune"/>
+        <rdfs:comment xml:lang="it">Elementi di gioco che possono essere utilizzati per sbloccare o temporaneamente abilitare skin per i personaggi</rdfs:comment>
+        <rdfs:label xml:lang="it">Shard</rdfs:label>
     </owl:Class>
     
 
@@ -1096,6 +1111,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="it">Statistiche del campione</rdfs:comment>
+        <rdfs:label xml:lang="it">Statistiche</rdfs:label>
     </owl:Class>
     
 
@@ -1114,6 +1131,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Summoner_Spells">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
+        <rdfs:comment xml:lang="it">Incantesimi speciali che ogni giocatore può scegliere prima di iniziare una partita</rdfs:comment>
+        <rdfs:label xml:lang="it">Summoner Spells</rdfs:label>
     </owl:Class>
     
 
@@ -1122,6 +1141,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Support">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
+        <rdfs:comment xml:lang="it">Ruolo dedicato al Supporto del team</rdfs:comment>
+        <rdfs:label xml:lang="it">Support</rdfs:label>
     </owl:Class>
     
 
@@ -1131,6 +1152,8 @@
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Tank">
         <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q1964626"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
+                <rdfs:comment xml:lang="it">Ruolo dedicato alla prima linea, con difesa molto alta</rdfs:comment>
+        <rdfs:label xml:lang="it">Tank</rdfs:label>
     </owl:Class>
     
 
@@ -1149,6 +1172,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Utility">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
+        <rdfs:comment xml:lang="it"></rdfs:comment>
+        <rdfs:label xml:lang="it">Utility</rdfs:label>
     </owl:Class>
     
 
@@ -1262,6 +1287,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ARAM">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità"/>
         <LoL:played_in_map rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Howling_Abyss"/>
+        <rdfs:comment xml:lang="it">Modalità di gioco</rdfs:comment>
+        <rdfs:label xml:lang="it">ARAM</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1270,6 +1297,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Ability_Haste">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Magic"/>
+                <rdfs:comment xml:lang="it">Rappresenta la  quantità di riduzione dei tempi di recupero delle abilità dei campioni per una percentuale.</rdfs:comment>
+        <rdfs:label xml:lang="it">Ability Haste</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1278,6 +1307,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Ability_Power">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Magic"/>
+        <rdfs:comment xml:lang="it">Rappresenta la  quantità Potenza magica assegnata</rdfs:comment>
+        <rdfs:label xml:lang="it">Ability Power</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1286,6 +1317,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Armor">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Defense"/>
+        <rdfs:comment xml:lang="it">Rappresenta la  quantità Armatura assegnata</rdfs:comment>
+        <rdfs:label xml:lang="it">Armor</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1294,6 +1327,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Damage">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack"/>
+        <rdfs:comment xml:lang="it">Rappresenta la  quantità danno di attacco.</rdfs:comment>
+        <rdfs:label xml:lang="it">Attack Damage</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1302,6 +1337,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Speed">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack"/>
+        <rdfs:comment xml:lang="it">Rappresenta la velocità di attacco.</rdfs:comment>
+        <rdfs:label xml:lang="it">Attack speed</rdfs:label>
     </owl:NamedIndividual>
     
 
