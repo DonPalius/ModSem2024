@@ -87,7 +87,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
-
+        <rdfs:comment xml:lang="it"></rdfs:comment>
+        <rdfs:label xml:lang="it">ability_of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -96,6 +97,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#bought_objects">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="it">Relazione che indica di aver acquistato un oggetto</rdfs:comment>
+        <rdfs:label xml:lang="it">bought_objects</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -110,6 +113,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#bought_objects"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Relazione che indica di aver acquistato delle statistiche</rdfs:comment>
+        <rdfs:label xml:lang="it">bought_stat</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -121,6 +126,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#keystone_in_path"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che la keystone appartinene al path</rdfs:comment>
+        <rdfs:label xml:lang="it">contains_keystone</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -132,6 +139,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#in_path"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Rune"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che il path contiene quella runa</rdfs:comment>
+        <rdfs:label xml:lang="it">contains_rune</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -142,6 +151,8 @@
         <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che un campone possiede un abilità</rdfs:comment>
+        <rdfs:label xml:lang="it">has_ability</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -153,6 +164,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_keystone_of"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che una runa ha quella keystone</rdfs:comment>
+        <rdfs:label xml:lang="it">has_keystone</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -163,6 +176,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che il match appartinene a un tipo di modalità</rdfs:comment>
+        <rdfs:label xml:lang="it">has_modality</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -173,6 +188,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che una rune page appartinene a un tipo di primary path</rdfs:comment>
+        <rdfs:label xml:lang="it">has_primary_path</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -184,6 +201,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_rune_of"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Rune"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che una rune appartinene a un tipo di primary path</rdfs:comment>
+        <rdfs:label xml:lang="it">has_primary_path</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -194,6 +213,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che una rune appartinene a un tipo di secondary path</rdfs:comment>
+        <rdfs:label xml:lang="it">has_primary_path</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -205,6 +226,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#is_shard_of"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Shard"/>
+        <rdfs:comment xml:lang="it">Relazione che indica una rune page possiede una shard</rdfs:comment>
+        <rdfs:label xml:lang="it">has_shard</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -214,6 +237,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
+        <rdfs:comment xml:lang="it">Relazione che un oggetto possiede una statistica</rdfs:comment>
+        <rdfs:label xml:lang="it">has_stat</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -224,6 +249,8 @@
         <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Rune"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che una keystone è presente in un path</rdfs:comment>
+        <rdfs:label xml:lang="it">in_path</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -234,6 +261,8 @@
         <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
+        <rdfs:comment xml:lang="it">Relazione che indica che la keystone appartinene al runa</rdfs:comment>
+        <rdfs:label xml:lang="it">is_keystone_of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -244,6 +273,8 @@
         <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Rune"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
+        <rdfs:comment xml:lang="it">Relazione che indica una runa appartinene a un path di rune</rdfs:comment>
+        <rdfs:label xml:lang="it">is_rune_of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -254,6 +285,8 @@
         <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Shard"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
+        <rdfs:comment xml:lang="it">Relazione che indica una shard appartinene a rune page</rdfs:comment>
+        <rdfs:label xml:lang="it">is_rune_of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -264,6 +297,8 @@
         <rdfs:subPropertyOf rdf:resource="ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Keystone"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path"/>
+        <rdfs:comment xml:lang="it">elazione che indica che un path possiede una keystone</rdfs:comment>
+        <rdfs:label xml:lang="it">keystone_in_path</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -274,6 +309,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#roleOfParticipant"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match_role"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
+
     </owl:ObjectProperty>
     
 
@@ -290,10 +326,7 @@
 
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#part_of_page -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#part_of_page">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participatingInEvent -->
@@ -302,6 +335,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ParticipantRole"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Event"/>
+        <rdfs:comment xml:lang="it">Relazione che indica la partecipazione a un evento da parte di un player</rdfs:comment>
+        <rdfs:label xml:lang="it">participatingInEvent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -312,6 +347,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participatingInEvent"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match_role"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match"/>
+        <rdfs:comment xml:lang="it">Relazione che indica la partecipazione a un match da parte di un player</rdfs:comment>
+        <rdfs:label xml:lang="it">participatingInMatch</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -321,6 +358,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#picked_champion">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="it">Relazione che indica la scelta di un campione da parte di un player</rdfs:comment>
+        <rdfs:label xml:lang="it">picked_champion</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -331,6 +370,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
+        <rdfs:comment xml:lang="it">Relazione che indica il Loadout in cui è selezionata una rune page</rdfs:comment>
+        <rdfs:label xml:lang="it">picked_in_loadout</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -342,6 +383,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune_Page"/>
+        <rdfs:comment xml:lang="it">Relazione che indica la scelta di un rune page in un Loadout</rdfs:comment>
+        <rdfs:label xml:lang="it">picked_rune_page</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -352,6 +395,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Summoner_Spells"/>
+        <rdfs:comment xml:lang="it">Relazione che indica le summoner spells scelte in un Loadout</rdfs:comment>
+        <rdfs:label xml:lang="it">picked_summoner_spells</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -362,6 +407,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
+        <rdfs:comment xml:lang="it">Relazione che indica la modalità scelta relativa alla mappa</rdfs:comment>
+        <rdfs:label xml:lang="it">played_in_map</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -372,17 +419,13 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
+        <rdfs:comment xml:lang="it">Relazione che indica il match giocato su quella mappa</rdfs:comment>
+        <rdfs:label xml:lang="it">played_in_map</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#played_on_patch -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#played_on_patch">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match"/>
-    </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#played_with_modality -->
@@ -391,6 +434,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità"/>
+        <rdfs:comment xml:lang="it">Relazione che indica la mappa giocata relativa alla modalità</rdfs:comment>
+        <rdfs:label xml:lang="it">played_with_modality</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -401,6 +446,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#objectParticipating"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match_role"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player"/>
+        <rdfs:comment xml:lang="it">Relazione che indica i player che partecipano al match</rdfs:comment>
+        <rdfs:label xml:lang="it">playerParticipating</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -411,6 +458,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#roleOfParticipant"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match_role"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Ruoli"/>
+        <rdfs:comment xml:lang="it">Relazione che indica il posizione in cui i player partecipano al match</rdfs:comment>
+        <rdfs:label xml:lang="it">positionOfParticipant</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -420,6 +469,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#roleOfParticipant">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ParticipantRole"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Role"/>
+        <rdfs:comment xml:lang="it">Relazione che indica il ruolo in cui i player partecipano al match</rdfs:comment>
+        <rdfs:label xml:lang="it">roleOfParticipant</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -442,6 +493,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#scales_with_stat"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Relazione che indica la possibilità di scalare con le statistiche</rdfs:comment>
+        <rdfs:label xml:lang="it">scales_with_stat</rdfs:label>
     </owl:ObjectProperty>
     
 
