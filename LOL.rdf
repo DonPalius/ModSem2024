@@ -656,6 +656,7 @@
 
     <owl:Class rdf:about="http://data.totl.net/game.rdf#Player">
         <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q5276395"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object"/>
         <rdfs:comment xml:lang="en">Gamer linkeddata</rdfs:comment>
         <rdfs:label xml:lang="en">ld:Player</rdfs:label>
     </owl:Class>
@@ -671,7 +672,6 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="it">Rappresenta le abilità utilizzabili da un campione</rdfs:comment>
         <rdfs:label xml:lang="it">Abilità</rdfs:label>
     </owl:Class>
@@ -681,6 +681,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Assassin -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Assassin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
         <rdfs:comment xml:lang="en">Represents champions with class Assassin</rdfs:comment>
         <rdfs:label xml:lang="en">Assassin</rdfs:label>
@@ -712,6 +713,8 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Bruiser -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Bruiser">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q1250916"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
         <rdfs:comment xml:lang="en">Represents champions with class Bruiser</rdfs:comment>
         <rdfs:label xml:lang="en">Bruiser</rdfs:label>
@@ -761,7 +764,6 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:comment xml:lang="it">Rappresenta le classi di un campione</rdfs:comment>
         <rdfs:label xml:lang="it">Classe</rdfs:label>
     </owl:Class>
@@ -791,7 +793,6 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="en">Represents entities in game</rdfs:comment>
         <rdfs:label xml:lang="en">Entity</rdfs:label>
     </owl:Class>
@@ -863,6 +864,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mage -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
         <rdfs:comment xml:lang="en">Represents champions with class Mage</rdfs:comment>
         <rdfs:label xml:lang="en">Mage</rdfs:label>
@@ -893,7 +895,6 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="it">Rappresenta le mappe presenti nel gioco</rdfs:comment>
         <rdfs:label xml:lang="it">Mappa</rdfs:label>
     </owl:Class>
@@ -903,6 +904,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Marksman -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Marksman">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
         <rdfs:comment xml:lang="en">Represents champions with class Marksman</rdfs:comment>
         <rdfs:label xml:lang="en">Marksman</rdfs:label>
@@ -976,7 +978,6 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="it">Rappresenta le modalità di gioco presenti</rdfs:comment>
         <rdfs:label xml:lang="it">Modalità</rdfs:label>
     </owl:Class>
@@ -1082,7 +1083,6 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="en">Represents the rune Paths present in the game</rdfs:comment>
         <rdfs:label xml:lang="en">Path</rdfs:label>
     </owl:Class>
@@ -1129,7 +1129,6 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="it">Runa scelta dal giocatore</rdfs:comment>
         <rdfs:label xml:lang="it">Rune</rdfs:label>
     </owl:Class>
@@ -1174,7 +1173,6 @@
                 <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Shard"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="it">Insieme di rune scelte dal giocatore</rdfs:comment>
         <rdfs:label xml:lang="it">Rune_Page</rdfs:label>
     </owl:Class>
@@ -1215,7 +1213,6 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="it">Statistiche del campione</rdfs:comment>
         <rdfs:label xml:lang="it">Statistiche</rdfs:label>
     </owl:Class>
@@ -1247,7 +1244,6 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#League_Of_Legends"/>
         <rdfs:comment xml:lang="it">Incantesimi speciali che ogni giocatore può scegliere prima di iniziare una partita</rdfs:comment>
         <rdfs:label xml:lang="it">Summoner Spells</rdfs:label>
     </owl:Class>
@@ -1257,6 +1253,7 @@
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Support -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Support">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
         <rdfs:comment xml:lang="it">Ruolo dedicato al Supporto del team</rdfs:comment>
         <rdfs:label xml:lang="it">Support</rdfs:label>
@@ -1268,6 +1265,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Tank">
         <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q1964626"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
         <rdfs:comment xml:lang="it">Ruolo dedicato alla prima linea, con difesa molto alta</rdfs:comment>
         <rdfs:label xml:lang="it">Tank</rdfs:label>
@@ -1300,6 +1298,7 @@
     <!-- https://alhakam.github.io/dot/#Damage -->
 
     <owl:Class rdf:about="https://alhakam.github.io/dot/#Damage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
         <rdfs:comment xml:lang="en">Linked data damage</rdfs:comment>
         <rdfs:label xml:lang="en">Damage</rdfs:label>
     </owl:Class>
@@ -1309,6 +1308,7 @@
     <!-- https://spinrdf.org/spin#MagicProperty -->
 
     <owl:Class rdf:about="https://spinrdf.org/spin#MagicProperty">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
         <rdfs:comment xml:lang="en">Magic linked data</rdfs:comment>
         <rdfs:label xml:lang="en">MagicProperty</rdfs:label>
     </owl:Class>
@@ -1319,6 +1319,7 @@
 
     <owl:Class rdf:about="https://www.bbc.co.uk/ontologies/sport-ontology/#Match">
         <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q12362855"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Event"/>
         <rdfs:comment xml:lang="en">match linked data</rdfs:comment>
         <rdfs:label xml:lang="en">ld:Match</rdfs:label>
     </owl:Class>
@@ -1328,6 +1329,7 @@
     <!-- https://www.wikidata.org/wiki/Q1062345 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1062345">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
         <rdfs:comment xml:lang="en">Wikidata Player character</rdfs:comment>
         <rdfs:label xml:lang="en">Player Character</rdfs:label>
     </owl:Class>
@@ -1337,8 +1339,19 @@
     <!-- https://www.wikidata.org/wiki/Q12362855 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q12362855">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Event"/>
         <rdfs:comment xml:lang="en">game (sporting event) wikidata</rdfs:comment>
         <rdfs:label xml:lang="en">game</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q1250916 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1250916">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
+        <rdfs:comment xml:lang="en">wikidata warrior</rdfs:comment>
+        <rdfs:label xml:lang="en">Warrior</rdfs:label>
     </owl:Class>
     
 
@@ -1346,6 +1359,7 @@
     <!-- https://www.wikidata.org/wiki/Q1964626 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1964626">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:comment xml:lang="en">Wikidata Tank</rdfs:comment>
         <rdfs:label xml:lang="en">Tank_Q1964626</rdfs:label>
     </owl:Class>
@@ -1364,6 +1378,7 @@
     <!-- https://www.wikidata.org/wiki/Q466466 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q466466">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
         <rdfs:comment xml:lang="en">Wikidata non-player character (NPC)</rdfs:comment>
         <rdfs:label xml:lang="en">non-player-character</rdfs:label>
     </owl:Class>
@@ -1373,6 +1388,7 @@
     <!-- https://www.wikidata.org/wiki/Q5276395 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q5276395">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object"/>
         <rdfs:comment xml:lang="en">Wikidata Gamer</rdfs:comment>
         <rdfs:label xml:lang="en">Gamer</rdfs:label>
     </owl:Class>
