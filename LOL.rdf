@@ -363,6 +363,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#picked_champion">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdfs:comment xml:lang="it">Relazione che indica la scelta di un campione da parte di un player</rdfs:comment>
         <rdfs:label xml:lang="it">picked_champion</rdfs:label>
     </owl:ObjectProperty>
