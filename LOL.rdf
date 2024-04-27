@@ -417,7 +417,7 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Modalità"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
         <rdfs:comment xml:lang="it">Relazione che indica la modalità scelta relativa alla mappa</rdfs:comment>
-        <rdfs:label xml:lang="it">played_in_map</rdfs:label>
+        <rdfs:label xml:lang="en">played_in_map</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -429,7 +429,7 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa"/>
         <rdfs:comment xml:lang="it">Relazione che indica il match giocato su quella mappa</rdfs:comment>
-        <rdfs:label xml:lang="it">played_in_map</rdfs:label>
+        <rdfs:label xml:lang="en">played_on_map</rdfs:label>
     </owl:ObjectProperty>
     
 
