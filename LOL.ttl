@@ -5,6 +5,7 @@
 @prefix LoL: <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wdt: <https://www.wikidata.org/wiki/Property:#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1866,6 +1867,41 @@ LoL:release_date rdf:type owl:DatatypeProperty ;
                  rdfs:label "release_date"@it .
 
 
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/AbilityPower
+:AbilityPower rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/Armor
+:Armor rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/AttackDamage
+:AttackDamage rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/AttackSpeed
+:AttackSpeed rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/HitPoints
+:HitPoints rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/MagicResist
+:MagicResist rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/MovementSpeed
+:MovementSpeed rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -2748,6 +2784,9 @@ LoL:Caitlyin rdf:type owl:NamedIndividual ,
                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                         owl:onClass LoL:Ultimate
                       ] ;
+             LoL:has_ability LoL:Caitlyin_Ultimate ;
+             :playedInRole :Adcarry ;
+             <ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart> LoL:Caitlyin_Ultimate ;
              rdfs:comment "League of Legends Champion"@en ;
              rdfs:label "Caitlyin"@en .
 
@@ -2761,6 +2800,8 @@ LoL:Caitlyin_Ultimate rdf:type owl:NamedIndividual ,
                                  owl:someValuesFrom LoL:Statistiche
                                ] ;
                       owl:differentFrom LoL:Zed_Ultimate ;
+                      LoL:ability_of LoL:Caitlyin ;
+                      <ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#isPartOf> LoL:Caitlyin ;
                       rdfs:comment "Caitlyin ultimate ability"@en ;
                       rdfs:label "Ace in the Hole"@en .
 
@@ -2979,6 +3020,7 @@ LoL:Loadout_1 rdf:type owl:NamedIndividual ,
                          owl:maxQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
                          owl:onClass LoL:Oggetto
                        ] ;
+              LoL:picked_champion LoL:Zed ;
               LoL:picked_rune_page LoL:rune_page1 ;
               rdfs:comment "Player's Loadout in a game"@en ;
               rdfs:label "Loadout_1"@en .
@@ -3305,6 +3347,7 @@ LoL:Zed rdf:type owl:NamedIndividual ,
                         LoL:Zed_passive ;
         LoL:same_class LoL:Zed ,
                        LoL:kha_zix ;
+        :playedInRole LoL:Mid ;
         <ttp://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#hasPart> LoL:Zed_E ,
                                                                              LoL:Zed_Q ,
                                                                              LoL:Zed_Ultimate ,
@@ -3600,6 +3643,67 @@ LoL:rune_page1 rdf:type owl:NamedIndividual ,
         rdfs:label "Jungler"@en .
 
 
+###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/Loadout_2
+:Loadout_2 rdf:type owl:NamedIndividual ,
+                    LoL:Loadout ,
+                    LoL:Role ,
+                    [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                             owl:onProperty LoL:picked_champion ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass LoL:Campione
+                                           ]
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty LoL:picked_rune_page ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass LoL:Rune_Page
+                                           ]
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty LoL:picked_summoner_spells ;
+                                             owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                             owl:onClass LoL:Summoner_Spells
+                                           ]
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty LoL:bought_objects ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass LoL:Stivale
+                                           ]
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty LoL:bought_objects ;
+                                             owl:maxQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
+                                             owl:onClass LoL:Oggetto
+                                           ]
+                                         ) ;
+                      rdf:type owl:Class
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty LoL:picked_champion ;
+                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                      owl:onClass LoL:Campione
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty LoL:picked_rune_page ;
+                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                      owl:onClass LoL:Rune_Page
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty LoL:picked_summoner_spells ;
+                      owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                      owl:onClass LoL:Summoner_Spells
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty LoL:bought_objects ;
+                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                      owl:onClass LoL:Stivale
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty LoL:bought_objects ;
+                      owl:maxQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
+                      owl:onClass LoL:Oggetto
+                    ] ;
+           LoL:picked_champion LoL:Caitlyin ;
+           LoL:picked_rune_page LoL:rune_page1 .
+
+
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/Overheal
 :Overheal rdf:type owl:NamedIndividual ,
                    LoL:Path_Rune ,
@@ -3753,11 +3857,15 @@ LoL:rune_page1 rdf:type owl:NamedIndividual ,
                          owl:onProperty LoL:positionOfParticipant ;
                          owl:someValuesFrom LoL:Ruoli
                        ] ;
+              LoL:loadoutOfParticipant :Loadout_2 ;
               LoL:objectParticipating :Ruler ,
                                       wd:Q97420245 ;
               LoL:participatingInEvent :T1_vs_JDG ;
               LoL:playerParticipating :Ruler ,
                                       wd:Q97420245 ;
+              LoL:positionOfParticipant :Adcarry ;
+              LoL:roleOfParticipant :Adcarry ,
+                                    :Loadout_2 ;
               rdfs:comment "Represents Ruler Participating in the T1 vs JDG match"@en ;
               rdfs:label "T1 vs JDG Ruler"@en .
 
@@ -4474,15 +4582,15 @@ wd:Q97420245 rdf:type owl:NamedIndividual ,
 #    Rules
 #################################################################
 
-:x rdf:type swrl:Variable .
+<urn:swrl:var#x> rdf:type swrl:Variable .
 
-:y rdf:type swrl:Variable .
+<urn:swrl:var#y> rdf:type swrl:Variable .
 
-:z rdf:type swrl:Variable .
+<urn:swrl:var#z> rdf:type swrl:Variable .
 
-:k rdf:type swrl:Variable .
+<urn:swrl:var#k> rdf:type swrl:Variable .
 
-:h rdf:type swrl:Variable .
+<urn:swrl:var#h> rdf:type swrl:Variable .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "Asserisce che se un giocatore ha giocato un campione in un ruolo, allora il campione è giocato in quel ruolo" ;
@@ -4491,51 +4599,51 @@ wd:Q97420245 rdf:type owl:NamedIndividual ,
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
                            swrl:classPredicate LoL:Match_role ;
-                           swrl:argument1 :x
+                           swrl:argument1 <urn:swrl:var#x>
                          ] ;
                rdf:rest [ rdf:type swrl:AtomList ;
                           rdf:first [ rdf:type swrl:ClassAtom ;
                                       swrl:classPredicate LoL:Player ;
-                                      swrl:argument1 :y
+                                      swrl:argument1 <urn:swrl:var#y>
                                     ] ;
                           rdf:rest [ rdf:type swrl:AtomList ;
                                      rdf:first [ rdf:type swrl:ClassAtom ;
                                                  swrl:classPredicate LoL:Loadout ;
-                                                 swrl:argument1 :z
+                                                 swrl:argument1 <urn:swrl:var#z>
                                                ] ;
                                      rdf:rest [ rdf:type swrl:AtomList ;
                                                 rdf:first [ rdf:type swrl:ClassAtom ;
                                                             swrl:classPredicate LoL:Ruoli ;
-                                                            swrl:argument1 :k
+                                                            swrl:argument1 <urn:swrl:var#k>
                                                           ] ;
                                                 rdf:rest [ rdf:type swrl:AtomList ;
                                                            rdf:first [ rdf:type swrl:ClassAtom ;
                                                                        swrl:classPredicate LoL:Campione ;
-                                                                       swrl:argument1 :h
+                                                                       swrl:argument1 <urn:swrl:var#h>
                                                                      ] ;
                                                            rdf:rest [ rdf:type swrl:AtomList ;
                                                                       rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                                                                                   swrl:propertyPredicate LoL:playerParticipating ;
-                                                                                  swrl:argument1 :x ;
-                                                                                  swrl:argument2 :y
+                                                                                  swrl:argument1 <urn:swrl:var#x> ;
+                                                                                  swrl:argument2 <urn:swrl:var#y>
                                                                                 ] ;
                                                                       rdf:rest [ rdf:type swrl:AtomList ;
                                                                                  rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                                                                                              swrl:propertyPredicate LoL:positionOfParticipant ;
-                                                                                             swrl:argument1 :x ;
-                                                                                             swrl:argument2 :k
+                                                                                             swrl:argument1 <urn:swrl:var#x> ;
+                                                                                             swrl:argument2 <urn:swrl:var#k>
                                                                                            ] ;
                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
                                                                                             rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                                                                                                         swrl:propertyPredicate LoL:loadoutOfParticipant ;
-                                                                                                        swrl:argument1 :x ;
-                                                                                                        swrl:argument2 :z
+                                                                                                        swrl:argument1 <urn:swrl:var#x> ;
+                                                                                                        swrl:argument2 <urn:swrl:var#z>
                                                                                                       ] ;
                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
                                                                                                        rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                                                                                                                    swrl:propertyPredicate LoL:picked_champion ;
-                                                                                                                   swrl:argument1 :z ;
-                                                                                                                   swrl:argument2 :h
+                                                                                                                   swrl:argument1 <urn:swrl:var#z> ;
+                                                                                                                   swrl:argument2 <urn:swrl:var#h>
                                                                                                                  ] ;
                                                                                                        rdf:rest rdf:nil
                                                                                                      ]
@@ -4550,8 +4658,8 @@ wd:Q97420245 rdf:type owl:NamedIndividual ,
    swrl:head [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                            swrl:propertyPredicate :playedInRole ;
-                           swrl:argument1 :h ;
-                           swrl:argument2 :k
+                           swrl:argument1 <urn:swrl:var#h> ;
+                           swrl:argument2 <urn:swrl:var#k>
                          ] ;
                rdf:rest rdf:nil
              ]
