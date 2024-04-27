@@ -3,7 +3,7 @@
      xml:base="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ld="https://spinrdf.org/spin#"
-     xmlns:wd="https://www.wikidata.org/"
+     xmlns:wd="https://www.wikidata.org/wiki/"
      xmlns:LoL="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -1338,14 +1338,6 @@
     
 
 
-    <!-- https://www.wikidata.org/wiki/Q1062345 -->
-
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1062345">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
-    </owl:Class>
-    
-
-
     <!-- https://www.wikidata.org/wiki/Q12362855 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q12362855">
@@ -1389,6 +1381,20 @@
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q5276395">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object"/>
     </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q1062345 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1062345">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q223341 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q223341"/>
     
 
 
@@ -1527,6 +1533,23 @@
     
 
 
+    <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Faker -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Faker">
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player"/>
+        <owl:sameAs rdf:resource="https://www.wikidata.org/wiki/Q15618298"/>
+        <rdfs:label xml:lang="en">Faker</rdfs:label>
+        <rdfs:label xml:lang="en">Korean Professional league of legends player</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q15618298 -->
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q15618298"/>
+    
+
+
     <!-- http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#HP -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#HP">
@@ -1562,8 +1585,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Infinity_Edge">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
         <LoL:has_stat rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Damage"/>
+        <rdfs:comment xml:lang="en">Infinity Edge</rdfs:comment>
         <rdfs:comment xml:lang="en">League of Legends Purchasable Item</rdfs:comment>
-        <rdfs:label xml:lang="en">Infinity Edge</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1748,6 +1771,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match_role"/>
         <LoL:loadoutOfParticipant rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout_1"/>
         <LoL:participatingInMatch rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#T1_vs_WBG"/>
+        <LoL:playerParticipating rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Faker"/>
         <LoL:positionOfParticipant rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mid"/>
         <rdfs:comment xml:lang="en">Represents faker participating in T1 vs WBG</rdfs:comment>
         <rdfs:label xml:lang="en">T1 WBG Faker</rdfs:label>
@@ -1899,14 +1923,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Faker -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Faker">
-        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Flash -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Flash">
@@ -2000,6 +2016,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#T1_vs_JDG_01">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match_role"/>
         <LoL:participatingInEvent rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#T1_vs_JDG"/>
+        <LoL:playerParticipating rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Faker"/>
         <rdfs:comment xml:lang="en">Represents Faker&apos;s participating in the match T1 vs JDG</rdfs:comment>
         <rdfs:label xml:lang="en">T1 vs JDG Faker</rdfs:label>
     </owl:NamedIndividual>
@@ -2024,14 +2041,6 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Summoner_Spells"/>
         <rdfs:comment xml:lang="en">Summoner Spell Teleport</rdfs:comment>
         <rdfs:label xml:lang="en">Teleport</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#TestPlayer -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#TestPlayer">
-        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player"/>
     </owl:NamedIndividual>
     
 
