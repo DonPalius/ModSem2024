@@ -8,7 +8,10 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vann="http://www.semanticweb.org/gfazor/ontologies/LOL#vann:">
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:vann="http://www.semanticweb.org/gfazor/ontologies/LOL#vann:"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL">
         <dc:creator>Andrea Paletto</dc:creator>
         <dc:creator>Gabriele Russo</dc:creator>
@@ -54,6 +57,12 @@
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
     
 
 
@@ -528,6 +537,14 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
         <rdfs:comment xml:lang="en">Represents the classes a Champions belongs to</rdfs:comment>
         <rdfs:label xml:lang="en">part of class</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#playedInRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#playedInRole">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -1963,6 +1980,7 @@
     <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Overheal -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Overheal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Path_Rune"/>
         <LoL:in_path rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Precision"/>
         <rdfs:comment xml:lang="en">Rune in Precision path</rdfs:comment>
         <rdfs:label xml:lang="en">Overheal</rdfs:label>
@@ -2121,6 +2139,152 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Resolve"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Sorcery"/>
         </owl:distinctMembers>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/k">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/h">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Asserisce che se un giocatore ha giocato un campione in un ruolo, allora il campione è giocato in quel ruolo</rdfs:comment>
+        <rdfs:label>giocatoInRuolo</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Match_role"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/z"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Ruoli"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/k"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/h"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#playerParticipating"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/x"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/y"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#positionOfParticipant"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/x"/>
+                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/k"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#loadoutOfParticipant"/>
+                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/x"/>
+                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/z"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#picked_champion"/>
+                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/z"/>
+                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/h"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
     </rdf:Description>
 </rdf:RDF>
 
