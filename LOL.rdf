@@ -2,6 +2,8 @@
 <rdf:RDF xmlns="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/"
      xml:base="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ld="https://spinrdf.org/spin#"
+     xmlns:wd="https://www.wikidata.org/"
      xmlns:LoL="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -547,6 +549,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#playedInRole">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">States that a champion is played in a certain role</rdfs:comment>
+        <rdfs:label xml:lang="en">playedInRole</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -676,8 +680,6 @@
     <owl:Class rdf:about="http://data.totl.net/game.rdf#Player">
         <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q5276395"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object"/>
-        <rdfs:comment xml:lang="en">Gamer linkeddata</rdfs:comment>
-        <rdfs:label xml:lang="en">ld:Player</rdfs:label>
     </owl:Class>
     
 
@@ -750,8 +752,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Passiva"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Passiva"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_ability"/>
@@ -769,8 +770,7 @@
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#part_of_class"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
@@ -1040,8 +1040,7 @@
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
@@ -1318,8 +1317,6 @@
 
     <owl:Class rdf:about="https://alhakam.github.io/dot/#Damage">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
-        <rdfs:comment xml:lang="en">Linked data damage</rdfs:comment>
-        <rdfs:label xml:lang="en">Damage</rdfs:label>
     </owl:Class>
     
 
@@ -1328,8 +1325,6 @@
 
     <owl:Class rdf:about="https://spinrdf.org/spin#MagicProperty">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche"/>
-        <rdfs:comment xml:lang="en">Magic linked data</rdfs:comment>
-        <rdfs:label xml:lang="en">MagicProperty</rdfs:label>
     </owl:Class>
     
 
@@ -1339,8 +1334,6 @@
     <owl:Class rdf:about="https://www.bbc.co.uk/ontologies/sport-ontology/#Match">
         <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q12362855"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Event"/>
-        <rdfs:comment xml:lang="en">match linked data</rdfs:comment>
-        <rdfs:label xml:lang="en">ld:Match</rdfs:label>
     </owl:Class>
     
 
@@ -1349,8 +1342,6 @@
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1062345">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
-        <rdfs:comment xml:lang="en">Wikidata Player character</rdfs:comment>
-        <rdfs:label xml:lang="en">Player Character</rdfs:label>
     </owl:Class>
     
 
@@ -1359,8 +1350,6 @@
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q12362855">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Event"/>
-        <rdfs:comment xml:lang="en">game (sporting event) wikidata</rdfs:comment>
-        <rdfs:label xml:lang="en">game</rdfs:label>
     </owl:Class>
     
 
@@ -1369,8 +1358,6 @@
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1250916">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
-        <rdfs:comment xml:lang="en">wikidata warrior</rdfs:comment>
-        <rdfs:label xml:lang="en">Warrior</rdfs:label>
     </owl:Class>
     
 
@@ -1379,18 +1366,13 @@
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1964626">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
-        <rdfs:comment xml:lang="en">Wikidata Tank</rdfs:comment>
-        <rdfs:label xml:lang="en">Tank_Q1964626</rdfs:label>
     </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q223341 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q223341">
-        <rdfs:comment xml:lang="en">League of Legends linked data</rdfs:comment>
-        <rdfs:label xml:lang="en">League of Legends</rdfs:label>
-    </owl:Class>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q223341"/>
     
 
 
@@ -1398,8 +1380,6 @@
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q466466">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
-        <rdfs:comment xml:lang="en">Wikidata non-player character (NPC)</rdfs:comment>
-        <rdfs:label xml:lang="en">non-player-character</rdfs:label>
     </owl:Class>
     
 
@@ -1408,8 +1388,6 @@
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q5276395">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object"/>
-        <rdfs:comment xml:lang="en">Wikidata Gamer</rdfs:comment>
-        <rdfs:label xml:lang="en">Gamer</rdfs:label>
     </owl:Class>
     
 
@@ -1993,7 +1971,7 @@
     <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Ruler -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Ruler">
-        <rdf:type rdf:resource="https://www.wikidata.org/wiki/Q5276395"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player"/>
         <owl:sameAs rdf:resource="https://www.wikidata.org/wiki/Q97420245"/>
         <rdfs:comment xml:lang="en">Korean League of Legends Professional Player</rdfs:comment>
         <rdfs:label xml:lang="en">Ruler</rdfs:label>
@@ -2084,7 +2062,7 @@
     <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Zeus -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Zeus">
-        <rdf:type rdf:resource="https://www.wikidata.org/wiki/Q5276395"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Player"/>
         <owl:sameAs rdf:resource="https://www.wikidata.org/wiki/Q105488493"/>
         <rdfs:comment xml:lang="en">Korean Professional League of Legends Player</rdfs:comment>
         <rdfs:label xml:lang="en">Zeus</rdfs:label>
@@ -2286,7 +2264,20 @@
                 </rdf:rest>
             </rdf:Description>
         </swrl:body>
-        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#playedInRole"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/h"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/k"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
