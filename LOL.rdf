@@ -4,6 +4,7 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ld="https://spinrdf.org/spin#"
      xmlns:wd="https://www.wikidata.org/wiki/"
+     xmlns:LOL="http://www.semanticweb.org/gfazor/ontologies/LOL#"
      xmlns:LoL="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -1543,6 +1544,10 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Caitlyin">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Campione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Marksman"/>
+        <LoL:has_ability rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Caitlyin_Ultimate"/>
+        <LOL:AttackDamage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">60.3</LOL:AttackDamage>
+        <LOL:AttackSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.64</LOL:AttackSpeed>
+        <LOL:HitPoints rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</LOL:HitPoints>
         <rdfs:comment xml:lang="en">League of Legends Champion</rdfs:comment>
         <rdfs:label xml:lang="en">Caitlyin</rdfs:label>
     </owl:NamedIndividual>
@@ -1574,6 +1579,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Deadmans_plate">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
+        <LOL:Armor rdf:datatype="http://www.w3.org/2001/XMLSchema#float">50.0</LOL:Armor>
+        <LOL:HitPoints rdf:datatype="http://www.w3.org/2001/XMLSchema#float">400.0</LOL:HitPoints>
         <rdfs:comment xml:lang="en">League of legends Purchasable Item</rdfs:comment>
         <rdfs:label xml:lang="en">Deadman&apos;s Plate</rdfs:label>
     </owl:NamedIndividual>
@@ -1652,7 +1659,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Infinity_Edge">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
-        <LoL:has_stat rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Damage"/>
+        <LOL:AttackDamage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">60.0</LOL:AttackDamage>
+        <LOL:CritChance rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.2</LOL:CritChance>
         <rdfs:comment xml:lang="en">Infinity Edge</rdfs:comment>
         <rdfs:comment xml:lang="en">League of Legends Purchasable Item</rdfs:comment>
     </owl:NamedIndividual>
@@ -1683,6 +1691,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout_1">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
+        <LoL:bought_objects rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Infinity_Edge"/>
         <LoL:picked_champion rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Zed"/>
         <LoL:picked_rune_page rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#rune_page1"/>
         <rdfs:comment xml:lang="en">Player&apos;s Loadout in a game</rdfs:comment>
@@ -1768,6 +1777,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rabadons_deathcap">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
+        <LOL:AbilityPower rdf:datatype="http://www.w3.org/2001/XMLSchema#float">120.0</LOL:AbilityPower>
         <rdfs:comment xml:lang="en">Purchasable Item</rdfs:comment>
         <rdfs:label xml:lang="en">Rabadon&apos;s Deathcap</rdfs:label>
     </owl:NamedIndividual>
@@ -1898,6 +1908,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Zed_Q">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
+        <LoL:scales_with_stat rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Damage"/>
         <rdfs:comment xml:lang="en">Zed ability</rdfs:comment>
         <rdfs:label xml:lang="en">Razor Shuriken</rdfs:label>
     </owl:NamedIndividual>
@@ -2151,6 +2162,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Runaan&apos;s_Hurricane -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Runaan&apos;s_Hurricane">
+        <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
+        <LOL:AttackSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</LOL:AttackSpeed>
+        <LOL:CritChance rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.2</LOL:CritChance>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://www.wikidata.org/wiki/Q105488493 -->
 
     <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q105488493"/>
@@ -2245,6 +2266,15 @@
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/h">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#e">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#v">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#o">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description>
@@ -2374,6 +2404,97 @@
                         <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#playedInRole"/>
                         <swrl:argument1 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/h"/>
                         <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/k"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Has Attack Damage</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#AttackDamage"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#v"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Damage"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:comment xml:lang="en">If an item has AttackSpeed stat then the Item has an object property &apos;has_stat&apos; with &apos;Attack_Speed&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">Has AttackSpeed</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Oggetto"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#o"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#AttackSpeed"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#o"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#v"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_stat"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#o"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Attack_Speed"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
