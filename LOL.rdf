@@ -585,6 +585,7 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ability_description">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Abilità"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="it">Descrizione dell&apos;abilità</rdfs:comment>
         <rdfs:label xml:lang="it">ability_description</rdfs:label>
@@ -660,6 +661,79 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment xml:lang="it">Data di rilascio</rdfs:comment>
         <rdfs:label xml:lang="it">release_date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#AbilityPower -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#AbilityPower">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Armor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Armor">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#AttackDamage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#AttackDamage">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#AttackSpeed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#AttackSpeed">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#CritChance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#CritChance">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#HitPoints -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#HitPoints">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Lethality -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Lethality">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#MagicResist -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#MagicResist">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
     </owl:DatatypeProperty>
     
 
@@ -1338,6 +1412,14 @@
     
 
 
+    <!-- https://www.wikidata.org/wiki/Q1062345 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1062345">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
+    </owl:Class>
+    
+
+
     <!-- https://www.wikidata.org/wiki/Q12362855 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q12362855">
@@ -1381,20 +1463,6 @@
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q5276395">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object"/>
     </owl:Class>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q1062345 -->
-
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1062345">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity"/>
-    </owl:Class>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q223341 -->
-
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q223341"/>
     
 
 
@@ -1615,6 +1683,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout_1">
         <rdf:type rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Loadout"/>
+        <LoL:picked_champion rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Zed"/>
         <LoL:picked_rune_page rdf:resource="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#rune_page1"/>
         <rdfs:comment xml:lang="en">Player&apos;s Loadout in a game</rdfs:comment>
         <rdfs:label xml:lang="en">Loadout_1</rdfs:label>
@@ -2125,6 +2194,32 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Resolve"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Sorcery"/>
         </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ability_description"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#has_price"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#lore"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#match_date"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#number_player"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#release_date"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#AbilityPower"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Armor"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#AttackDamage"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#AttackSpeed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#CritChance"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#HitPoints"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#Lethality"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gfazor/ontologies/LOL#MagicResist"/>
+        </owl:members>
     </rdf:Description>
     
 
