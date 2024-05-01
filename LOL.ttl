@@ -1,9 +1,9 @@
-@prefix : <http://www.semanticweb.org/gfazor/ontologies/LOL/> .
+@prefix : <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix ld: <https://spinrdf.org/spin#> .
 @prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix LOL: <http://www.semanticweb.org/gfazor/ontologies/LOL#> .
-@prefix LoL: <http://www.semanticweb.org/gfazor/ontologies/LOL#> .
+@prefix LoL: <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -13,7 +13,7 @@
 @prefix vann: <http://www.semanticweb.org/gfazor/ontologies/LOL#vann:> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
-@base <http://www.semanticweb.org/gfazor/ontologies/LOL/> .
+@base <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/> .
 
 <http://www.semanticweb.org/gfazor/ontologies/LOL> rdf:type owl:Ontology ;
                                                     dc:creator "Andrea Paletto" ,
@@ -22,7 +22,7 @@
                                                     dc:description "Ontologia del gioco League of Legends"@it ;
                                                     dc:title "League of Legends" ;
                                                     vann:preferredNamespacePrefix "lol" ;
-                                                    vann:preferredNamespaceUri "???" ;
+                                                    vann:preferredNamespaceUri "http://www.semanticweb.org/gfazor/ontologies/LOL" ;
                                                     rdfs:label "LOL"@en .
 
 #################################################################
@@ -62,341 +62,270 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#ability_of
-LoL:ability_of rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> ;
-               owl:inverseOf LoL:has_ability ;
-               rdfs:domain LoL:Abilità ;
-               rdfs:range LoL:Campione ;
+LOL:ability_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf LOL:isPartOf ;
+               owl:inverseOf LOL:has_ability ;
+               rdfs:domain LOL:Abilità ;
+               rdfs:range LOL:Campione ;
                rdfs:comment "Abilità Usabile da un campione"@it ;
                rdfs:label "ability_of"@it .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#belongs_to_class
+LOL:belongs_to_class rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf LOL:hasPart ;
+                     rdfs:domain LOL:Classe ;
+                     rdfs:range LOL:Campione ;
+                     rdfs:comment "Champions belonging to a class"@en ;
+                     rdfs:label "belongs to class"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#bought_objects
-LoL:bought_objects rdf:type owl:ObjectProperty ;
+LOL:bought_objects rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf owl:topObjectProperty ;
                    rdfs:comment "Relazione che indica di aver acquistato un oggetto"@it ;
                    rdfs:label "bought_objects"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#bought_stat
-LoL:bought_stat rdf:type owl:ObjectProperty ;
+LOL:bought_stat rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
-                rdfs:domain LoL:Loadout ;
-                rdfs:range LoL:Statistiche ;
-                owl:propertyChainAxiom ( LoL:bought_objects
-                                         LoL:has_stat
+                rdfs:domain LOL:Loadout ;
+                rdfs:range LOL:Statistiche ;
+                owl:propertyChainAxiom ( LOL:bought_objects
+                                         LOL:has_stat
                                        ) ;
                 rdfs:comment "Relazione che indica di aver acquistato delle statistiche"@it ;
                 rdfs:label "bought_stat"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#contains_keystone
-LoL:contains_keystone rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> ;
-                      owl:inverseOf LoL:keystone_in_path ;
-                      rdfs:domain LoL:Path ;
-                      rdfs:range LoL:Keystone ;
+LOL:contains_keystone rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf LOL:hasPart ;
+                      owl:inverseOf LOL:keystone_in_path ;
+                      rdfs:domain LOL:Path ;
+                      rdfs:range LOL:Keystone ;
                       rdfs:comment "Relazione che indica che la keystone appartinene al path"@it ;
                       rdfs:label "contains_keystone"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#contains_rune
-LoL:contains_rune rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> ;
-                  owl:inverseOf LoL:in_path ;
-                  rdfs:domain LoL:Path ;
-                  rdfs:range LoL:Path_Rune ;
+LOL:contains_rune rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf LOL:hasPart ;
+                  owl:inverseOf LOL:in_path ;
+                  rdfs:domain LOL:Path ;
+                  rdfs:range LOL:Path_Rune ;
                   rdfs:comment "Relazione che indica che il path contiene quella runa"@it ;
                   rdfs:label "contains_rune"@it .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart
+LOL:hasPart rdf:type owl:ObjectProperty ;
+            owl:inverseOf LOL:isPartOf .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_ability
-LoL:has_ability rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> ;
-                rdfs:domain LoL:Campione ;
-                rdfs:range LoL:Abilità ;
+LOL:has_ability rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf LOL:hasPart ;
+                rdfs:domain LOL:Campione ;
+                rdfs:range LOL:Abilità ;
                 rdfs:comment "Relazione che indica che un campone possiede un abilità"@it ;
                 rdfs:label "has_ability"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_keystone
-LoL:has_keystone rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> ;
-                 owl:inverseOf LoL:is_keystone_of ;
-                 rdfs:domain LoL:Rune_Page ;
-                 rdfs:range LoL:Keystone ;
+LOL:has_keystone rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf LOL:hasPart ;
+                 owl:inverseOf LOL:is_keystone_of ;
+                 rdfs:domain LOL:Rune_Page ;
+                 rdfs:range LOL:Keystone ;
                  rdfs:comment "Relazione che indica che una runa ha quella keystone"@it ;
                  rdfs:label "has_keystone"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_modality
-LoL:has_modality rdf:type owl:ObjectProperty ;
+LOL:has_modality rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf owl:topObjectProperty ;
-                 rdfs:domain LoL:Match ;
-                 rdfs:range LoL:Modalità ;
+                 rdfs:domain LOL:Match ;
+                 rdfs:range LOL:Modalità ;
                  rdfs:comment "Relazione che indica che il match appartinene a un tipo di modalità"@it ;
                  rdfs:label "has_modality"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_primary_path
-LoL:has_primary_path rdf:type owl:ObjectProperty ;
+LOL:has_primary_path rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf owl:topObjectProperty ;
-                     rdfs:domain LoL:Rune_Page ;
-                     rdfs:range LoL:Path ;
+                     rdfs:domain LOL:Rune_Page ;
+                     rdfs:range LOL:Path ;
                      rdfs:comment "Relazione che indica che una rune page appartinene a un tipo di primary path"@it ;
                      rdfs:label "has_primary_path"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_rune
-LoL:has_rune rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> ;
-             owl:inverseOf LoL:is_rune_of ;
-             rdfs:domain LoL:Rune_Page ;
-             rdfs:range LoL:Path_Rune ;
+LOL:has_rune rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf LOL:hasPart ;
+             owl:inverseOf LOL:is_rune_of ;
+             rdfs:domain LOL:Rune_Page ;
+             rdfs:range LOL:Path_Rune ;
              rdfs:comment "Relazione che indica che una rune appartinene a un tipo di primary path"@it ;
              rdfs:label "has_primary_path"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_secondary_path
-LoL:has_secondary_path rdf:type owl:ObjectProperty ;
+LOL:has_secondary_path rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf owl:topObjectProperty ;
-                       rdfs:domain LoL:Rune_Page ;
-                       rdfs:range LoL:Path ;
+                       rdfs:domain LOL:Rune_Page ;
+                       rdfs:range LOL:Path ;
                        rdfs:comment "Relazione che indica che una rune appartinene a un tipo di secondary path"@it ;
                        rdfs:label "has_primary_path"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_shard
-LoL:has_shard rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> ;
-              owl:inverseOf LoL:is_shard_of ;
-              rdfs:domain LoL:Rune_Page ;
-              rdfs:range LoL:Shard ;
+LOL:has_shard rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf LOL:hasPart ;
+              owl:inverseOf LOL:is_shard_of ;
+              rdfs:domain LOL:Rune_Page ;
+              rdfs:range LOL:Shard ;
               rdfs:comment "Relazione che indica una rune page possiede una shard"@it ;
               rdfs:label "has_shard"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_stat
-LoL:has_stat rdf:type owl:ObjectProperty ;
-             rdfs:domain LoL:Entity ;
-             rdfs:range LoL:Statistiche ;
+LOL:has_stat rdf:type owl:ObjectProperty ;
+             rdfs:domain LOL:Entity ;
+             rdfs:range LOL:Statistiche ;
              rdfs:comment "Relazione che un oggetto possiede una statistica"@it ;
              rdfs:label "has_stat"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#in_path
-LoL:in_path rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> ;
-            rdfs:domain LoL:Path_Rune ;
-            rdfs:range LoL:Path ;
+LOL:in_path rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf LOL:isPartOf ;
+            rdfs:domain LOL:Path_Rune ;
+            rdfs:range LOL:Path ;
             rdfs:comment "Relazione che indica che una keystone è presente in un path"@it ;
             rdfs:label "in_path"@it .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf
+LOL:isPartOf rdf:type owl:ObjectProperty .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#is_keystone_of
-LoL:is_keystone_of rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> ;
-                   rdfs:domain LoL:Keystone ;
-                   rdfs:range LoL:Rune_Page ;
+LOL:is_keystone_of rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf LOL:isPartOf ;
+                   rdfs:domain LOL:Keystone ;
+                   rdfs:range LOL:Rune_Page ;
                    rdfs:comment "Relazione che indica che la keystone appartinene al runa"@it ;
                    rdfs:label "is_keystone_of"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#is_rune_of
-LoL:is_rune_of rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> ;
-               rdfs:domain LoL:Path_Rune ;
-               rdfs:range LoL:Rune_Page ;
+LOL:is_rune_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf LOL:isPartOf ;
+               rdfs:domain LOL:Path_Rune ;
+               rdfs:range LOL:Rune_Page ;
                rdfs:comment "Relazione che indica una runa appartinene a un path di rune"@it ;
                rdfs:label "is_rune_of"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#is_shard_of
-LoL:is_shard_of rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> ;
-                rdfs:domain LoL:Shard ;
-                rdfs:range LoL:Rune_Page ;
+LOL:is_shard_of rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf LOL:isPartOf ;
+                rdfs:domain LOL:Shard ;
+                rdfs:range LOL:Rune_Page ;
                 rdfs:comment "Relazione che indica una shard appartinene a rune page"@it ;
                 rdfs:label "is_rune_of"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#keystone_in_path
-LoL:keystone_in_path rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> ;
-                     rdfs:domain LoL:Keystone ;
-                     rdfs:range LoL:Path ;
+LOL:keystone_in_path rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf LOL:isPartOf ;
+                     rdfs:domain LOL:Keystone ;
+                     rdfs:range LOL:Path ;
                      rdfs:comment "elazione che indica che un path possiede una keystone"@it ;
                      rdfs:label "keystone_in_path"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#loadoutOfParticipant
-LoL:loadoutOfParticipant rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf LoL:roleOfParticipant ;
-                         rdfs:domain LoL:Match_role ;
-                         rdfs:range LoL:Loadout ;
+LOL:loadoutOfParticipant rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf LOL:roleOfParticipant ;
+                         rdfs:domain LOL:Match_role ;
+                         rdfs:range LOL:Loadout ;
                          rdfs:comment "The loadout choosen by the player in a game"@en ;
                          rdfs:label "loadoutOfParticipant"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#objectParticipating
-LoL:objectParticipating rdf:type owl:ObjectProperty ;
+LOL:objectParticipating rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf owl:topObjectProperty ;
-                        rdfs:domain LoL:ParticipantRole ;
-                        rdfs:range LoL:participation:Object .
+                        rdfs:domain LOL:ParticipantRole ;
+                        rdfs:range LOL:participation:Object .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#part_of_class
+LOL:part_of_class rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf LOL:isPartOf ;
+                  rdfs:domain LOL:Campione ;
+                  rdfs:range LOL:Classe ;
+                  rdfs:comment "Represents the classes a Champions belongs to"@en ;
+                  rdfs:label "part of class"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#participatingInEvent
-LoL:participatingInEvent rdf:type owl:ObjectProperty ;
+LOL:participatingInEvent rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf owl:topObjectProperty ;
-                         rdfs:domain LoL:ParticipantRole ;
-                         rdfs:range LoL:participation:Event ;
+                         rdfs:domain LOL:ParticipantRole ;
+                         rdfs:range LOL:participation:Event ;
                          rdfs:comment "Relazione che indica la partecipazione a un evento da parte di un player"@it ;
                          rdfs:label "participatingInEvent"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#participatingInMatch
-LoL:participatingInMatch rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf LoL:participatingInEvent ;
-                         rdfs:domain LoL:Match_role ;
-                         rdfs:range LoL:Match ;
+LOL:participatingInMatch rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf LOL:participatingInEvent ;
+                         rdfs:domain LOL:Match_role ;
+                         rdfs:range LOL:Match ;
                          rdfs:comment "Relazione che indica la partecipazione a un match da parte di un player"@it ;
                          rdfs:label "participatingInMatch"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#picked_champion
-LoL:picked_champion rdf:type owl:ObjectProperty ;
+LOL:picked_champion rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdf:type owl:FunctionalProperty ;
-                    rdfs:domain LoL:Loadout ;
-                    rdfs:range LoL:Campione ;
+                    rdfs:domain LOL:Loadout ;
+                    rdfs:range LOL:Campione ;
                     rdfs:comment "Relazione che indica la scelta di un campione da parte di un player"@it ;
                     rdfs:label "picked_champion"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#picked_in_loadout
-LoL:picked_in_loadout rdf:type owl:ObjectProperty ,
+LOL:picked_in_loadout rdf:type owl:ObjectProperty ,
                                owl:InverseFunctionalProperty ;
-                      rdfs:domain LoL:Rune_Page ;
-                      rdfs:range LoL:Loadout ;
+                      rdfs:domain LOL:Rune_Page ;
+                      rdfs:range LOL:Loadout ;
                       rdfs:comment "Relazione che indica il Loadout in cui è selezionata una rune page"@it ;
                       rdfs:label "picked_in_loadout"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#picked_rune_page
-LoL:picked_rune_page rdf:type owl:ObjectProperty ;
+LOL:picked_rune_page rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf owl:topObjectProperty ;
                      rdf:type owl:FunctionalProperty ;
-                     rdfs:domain LoL:Loadout ;
-                     rdfs:range LoL:Rune_Page ;
+                     rdfs:domain LOL:Loadout ;
+                     rdfs:range LOL:Rune_Page ;
                      rdfs:comment "Relazione che indica la scelta di un rune page in un Loadout"@it ;
                      rdfs:label "picked_rune_page"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#picked_summoner_spells
-LoL:picked_summoner_spells rdf:type owl:ObjectProperty ;
+LOL:picked_summoner_spells rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf owl:topObjectProperty ;
-                           rdfs:domain LoL:Loadout ;
-                           rdfs:range LoL:Summoner_Spells ;
+                           rdfs:domain LOL:Loadout ;
+                           rdfs:range LOL:Summoner_Spells ;
                            rdfs:comment "Relazione che indica le summoner spells scelte in un Loadout"@it ;
                            rdfs:label "picked_summoner_spells"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#played_in_map
-LoL:played_in_map rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain LoL:Modalità ;
-                  rdfs:range LoL:Mappa ;
-                  rdfs:comment "Relazione che indica la modalità scelta relativa alla mappa"@it ;
-                  rdfs:label "played_in_map"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#played_on_map
-LoL:played_on_map rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain LoL:Match ;
-                  rdfs:range LoL:Mappa ;
-                  rdfs:comment "Relazione che indica il match giocato su quella mappa"@it ;
-                  rdfs:label "played_on_map"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#played_with_modality
-LoL:played_with_modality rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf owl:topObjectProperty ;
-                         rdfs:domain LoL:Match ;
-                         rdfs:range LoL:Modalità ;
-                         rdfs:comment "Relazione che indica la mappa giocata relativa alla modalità"@it ;
-                         rdfs:label "played_with_modality"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#playerParticipating
-LoL:playerParticipating rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf LoL:objectParticipating ;
-                        rdfs:domain LoL:Match_role ;
-                        rdfs:range LoL:Player ;
-                        rdfs:comment "Relazione che indica i player che partecipano al match"@it ;
-                        rdfs:label "playerParticipating"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#positionOfParticipant
-LoL:positionOfParticipant rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf LoL:roleOfParticipant ;
-                          rdfs:domain LoL:Match_role ;
-                          rdfs:range LoL:Ruoli ;
-                          rdfs:comment "Relazione che indica il posizione in cui i player partecipano al match"@it ;
-                          rdfs:label "positionOfParticipant"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#roleOfParticipant
-LoL:roleOfParticipant rdf:type owl:ObjectProperty ;
-                      rdfs:domain LoL:ParticipantRole ;
-                      rdfs:range LoL:Role ;
-                      rdfs:comment "Relazione che indica il ruolo in cui i player partecipano al match"@it ;
-                      rdfs:label "roleOfParticipant"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#same_class
-LoL:same_class rdf:type owl:ObjectProperty ,
-                        owl:SymmetricProperty ,
-                        owl:TransitiveProperty .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#scales_with_stat
-LoL:scales_with_stat rdf:type owl:ObjectProperty ;
-                     rdfs:domain LoL:Abilità ;
-                     rdfs:range LoL:Statistiche ;
-                     owl:propertyChainAxiom ( LoL:has_ability
-                                              LoL:scales_with_stat
-                                            ) ;
-                     rdfs:comment "Relazione che indica la possibilità di scalare con le statistiche"@it ;
-                     rdfs:label "scales_with_stat"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:hasParticipant
-LoL:participation:hasParticipant rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf owl:topObjectProperty .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:isParticipatingIn
-LoL:participation:isParticipatingIn rdf:type owl:ObjectProperty ;
-                                    rdfs:subPropertyOf owl:topObjectProperty .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#belongs_to_class
-LOL:belongs_to_class rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> ;
-                     rdfs:domain LoL:Classe ;
-                     rdfs:range LoL:Campione ;
-                     rdfs:comment "Champions belonging to a class"@en ;
-                     rdfs:label "belongs to class"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#part_of_class
-LOL:part_of_class rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> ;
-                  rdfs:domain LoL:Campione ;
-                  rdfs:range LoL:Classe ;
-                  rdfs:comment "Represents the classes a Champions belongs to"@en ;
-                  rdfs:label "part of class"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#playedInRole
@@ -406,54 +335,89 @@ LOL:playedInRole rdf:type owl:ObjectProperty ;
                  rdfs:label "playedInRole"@en .
 
 
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart
-<http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart> rdf:type owl:ObjectProperty ;
-                                                                     owl:inverseOf <http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> .
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#played_in_map
+LOL:played_in_map rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain LOL:Modalità ;
+                  rdfs:range LOL:Mappa ;
+                  rdfs:comment "Relazione che indica la modalità scelta relativa alla mappa"@it ;
+                  rdfs:label "played_in_map"@en .
 
 
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf
-<http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf> rdf:type owl:ObjectProperty .
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#played_on_map
+LOL:played_on_map rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain LOL:Match ;
+                  rdfs:range LOL:Mappa ;
+                  rdfs:comment "Relazione che indica il match giocato su quella mappa"@it ;
+                  rdfs:label "played_on_map"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#played_with_modality
+LOL:played_with_modality rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ;
+                         rdfs:domain LOL:Match ;
+                         rdfs:range LOL:Modalità ;
+                         rdfs:comment "Relazione che indica la mappa giocata relativa alla modalità"@it ;
+                         rdfs:label "played_with_modality"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#playerParticipating
+LOL:playerParticipating rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf LOL:objectParticipating ;
+                        rdfs:domain LOL:Match_role ;
+                        rdfs:range LOL:Player ;
+                        rdfs:comment "Relazione che indica i player che partecipano al match"@it ;
+                        rdfs:label "playerParticipating"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#positionOfParticipant
+LOL:positionOfParticipant rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf LOL:roleOfParticipant ;
+                          rdfs:domain LOL:Match_role ;
+                          rdfs:range LOL:Ruoli ;
+                          rdfs:comment "Relazione che indica il posizione in cui i player partecipano al match"@it ;
+                          rdfs:label "positionOfParticipant"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#roleOfParticipant
+LOL:roleOfParticipant rdf:type owl:ObjectProperty ;
+                      rdfs:domain LOL:ParticipantRole ;
+                      rdfs:range LOL:Role ;
+                      rdfs:comment "Relazione che indica il ruolo in cui i player partecipano al match"@it ;
+                      rdfs:label "roleOfParticipant"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#same_class
+LOL:same_class rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty ,
+                        owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#scales_with_stat
+LOL:scales_with_stat rdf:type owl:ObjectProperty ;
+                     rdfs:domain LOL:Abilità ;
+                     rdfs:range LOL:Statistiche ;
+                     owl:propertyChainAxiom ( LOL:has_ability
+                                              LOL:scales_with_stat
+                                            ) ;
+                     rdfs:comment "Relazione che indica la possibilità di scalare con le statistiche"@it ;
+                     rdfs:label "scales_with_stat"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:hasParticipant
+LOL:participation:hasParticipant rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:isParticipatingIn
+LOL:participation:isParticipatingIn rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf owl:topObjectProperty .
 
 
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#ability_description
-LoL:ability_description rdf:type owl:DatatypeProperty ;
-                        rdfs:subPropertyOf owl:topDataProperty ;
-                        rdfs:domain LoL:Abilità ;
-                        rdfs:range xsd:string ;
-                        rdfs:comment "Descrizione dell'abilità"@it ;
-                        rdfs:label "ability_description"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_price
-LoL:has_price rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf owl:topDataProperty ;
-              rdfs:domain LoL:Oggetto ;
-              rdfs:range xsd:int ;
-              rdfs:comment "Prezzo dell'oggetto"@it ;
-              rdfs:label "has_price"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#lore
-LoL:lore rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf owl:topDataProperty ;
-         rdfs:domain LoL:Campione ;
-         rdfs:range xsd:string ;
-         rdfs:comment "Storia del campione"@it ;
-         rdfs:label "lore"@it .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#rank
-LoL:rank rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf owl:topDataProperty ;
-         rdfs:domain LoL:Player ;
-         rdfs:range xsd:string ;
-         rdfs:comment "rank del giocatore"@it ;
-         rdfs:label "rank"@it .
-
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#AbilityPower
 LOL:AbilityPower rdf:type owl:DatatypeProperty ;
@@ -499,9 +463,7 @@ LOL:HitPoints rdf:type owl:DatatypeProperty ;
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Lethality
 LOL:Lethality rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf LOL:Statistics ;
-              rdfs:comment "Armor Penetration Flat (lethality) value"@en ;
-              rdfs:label "Lethality"@en .
+              rdfs:subPropertyOf LOL:Statistics .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#MagicResist
@@ -521,10 +483,46 @@ LOL:MovementSpeed rdf:type owl:DatatypeProperty ;
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics
 LOL:Statistics rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf owl:topDataProperty ;
-               rdfs:domain LoL:Entity ;
+               rdfs:domain LOL:Entity ;
                rdfs:range xsd:float ;
                rdfs:comment "Entities Statistics values"@en ;
                rdfs:label "Statistics"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#ability_description
+LOL:ability_description rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain LOL:Abilità ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Descrizione dell'abilità"@it ;
+                        rdfs:label "ability_description"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_price
+LOL:has_price rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain LOL:Oggetto ;
+              rdfs:range xsd:int ;
+              rdfs:comment "Prezzo dell'oggetto"@it ;
+              rdfs:label "has_price"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#lore
+LOL:lore rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain LOL:Campione ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Storia del campione"@it ;
+         rdfs:label "lore"@it .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#rank
+LOL:rank rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain LOL:Player ;
+         rdfs:range xsd:string ;
+         rdfs:comment "rank del giocatore"@it ;
+         rdfs:label "rank"@it .
 
 
 #################################################################
@@ -534,434 +532,441 @@ LOL:Statistics rdf:type owl:DatatypeProperty ;
 ###  http://data.totl.net/game.rdf#Player
 <http://data.totl.net/game.rdf#Player> rdf:type owl:Class ;
                                        owl:equivalentClass wd:Q5276395 ;
-                                       rdfs:subClassOf LoL:participation:Object .
+                                       rdfs:subClassOf LOL:participation:Object .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Abilità
-LoL:Abilità rdf:type owl:Class ;
+LOL:Abilità rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty LoL:scales_with_stat ;
-                                  owl:someValuesFrom LoL:Statistiche
+                                  owl:onProperty LOL:scales_with_stat ;
+                                  owl:someValuesFrom LOL:Statistiche
                                 ] ;
-            rdfs:subClassOf LoL:League_Of_Legends ;
+            rdfs:subClassOf LOL:League_Of_Legends ;
             rdfs:comment "Rappresenta le abilità utilizzabili da un campione"@it ;
             rdfs:label "Abilità"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Assassin
-LoL:Assassin rdf:type owl:Class ;
-             rdfs:subClassOf LoL:Campione ,
-                             LoL:Classe ;
+LOL:Assassin rdf:type owl:Class ;
+             rdfs:subClassOf LOL:Campione ,
+                             LOL:Classe ;
              rdfs:comment "Represents champions with class Assassin"@en ;
              rdfs:label "Assassin"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Attack
-LoL:Attack rdf:type owl:Class ;
+LOL:Attack rdf:type owl:Class ;
            owl:equivalentClass <https://alhakam.github.io/dot/#Damage> ,
                                [ rdf:type owl:Class ;
-                                 owl:oneOf ( LoL:Attack_Damage
-                                             LoL:Attack_Speed
-                                             LoL:Crit_chance
-                                             LoL:Lethality
+                                 owl:oneOf ( LOL:Attack_Damage
+                                             LOL:Attack_Speed
+                                             LOL:Crit_chance
+                                             LOL:Lethality
                                            )
                                ] ;
-           rdfs:subClassOf LoL:Statistiche ;
+           rdfs:subClassOf LOL:Statistiche ;
            rdfs:comment "Represents stats that are correlated to attack damage"@en ;
            rdfs:label "Attack"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Bruiser
-LoL:Bruiser rdf:type owl:Class ;
+LOL:Bruiser rdf:type owl:Class ;
             owl:equivalentClass wd:Q1250916 ;
-            rdfs:subClassOf LoL:Campione ,
-                            LoL:Classe ;
+            rdfs:subClassOf LOL:Campione ,
+                            LOL:Classe ;
             rdfs:comment "Represents champions with class Bruiser"@en ;
             rdfs:label "Bruiser"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Campione
-LoL:Campione rdf:type owl:Class ;
+LOL:Campione rdf:type owl:Class ;
              owl:equivalentClass wd:Q1062345 ,
                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                          owl:onProperty LoL:has_ability ;
-                                                          owl:someValuesFrom LoL:Passiva
+                                                          owl:onProperty LOL:has_ability ;
+                                                          owl:someValuesFrom LOL:Passiva
                                                         ]
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty LoL:has_ability ;
+                                                          owl:onProperty LOL:has_ability ;
                                                           owl:minQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
-                                                          owl:onClass LoL:Abilità
+                                                          owl:onClass LOL:Abilità
                                                         ]
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty LoL:has_ability ;
+                                                          owl:onProperty LOL:has_ability ;
                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                          owl:onClass LoL:Ultimate
+                                                          owl:onClass LOL:Ultimate
                                                         ]
                                                       ) ;
                                    rdf:type owl:Class
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty LOL:part_of_class ;
-                                   owl:someValuesFrom LoL:Classe
+                                   owl:someValuesFrom LOL:Classe
                                  ] ;
-             rdfs:subClassOf LoL:Entity ;
+             rdfs:subClassOf LOL:Entity ;
              rdfs:comment "Rappresenta entità di tipo campione"@it ;
              rdfs:label "Campione"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Classe
-LoL:Classe rdf:type owl:Class ;
-           rdfs:subClassOf LoL:League_Of_Legends ;
+LOL:Classe rdf:type owl:Class ;
+           rdfs:subClassOf LOL:League_Of_Legends ;
            rdfs:comment "Rappresenta le classi di un campione"@it ;
            rdfs:label "Classe"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Defense
-LoL:Defense rdf:type owl:Class ;
+LOL:Defense rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:oneOf ( LoL:Armor
-                                              LoL:HP
-                                              LoL:HP_Regen
-                                              LoL:Magic_Resist
+                                  owl:oneOf ( LOL:Armor
+                                              LOL:HP
+                                              LOL:HP_Regen
+                                              LOL:Magic_Resist
                                             )
                                 ] ;
-            rdfs:subClassOf LoL:Statistiche ;
+            rdfs:subClassOf LOL:Statistiche ;
             rdfs:comment "Represents defensive statistics"@en ;
             rdfs:label "Defense"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Entity
-LoL:Entity rdf:type owl:Class ;
-           rdfs:subClassOf LoL:League_Of_Legends ;
+LOL:Entity rdf:type owl:Class ;
+           rdfs:subClassOf LOL:League_Of_Legends ;
            rdfs:comment "Represents entities in game"@en ;
            rdfs:label "Entity"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Keystone
-LoL:Keystone rdf:type owl:Class ;
-             rdfs:subClassOf LoL:Path_Rune ;
-             owl:disjointWith LoL:Other_Rune ;
+LOL:Keystone rdf:type owl:Class ;
+             rdfs:subClassOf LOL:Path_Rune ;
+             owl:disjointWith LOL:Other_Rune ;
              rdfs:comment "Represents a rune of type keystone"@en ;
              rdfs:label "Keystone"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#League_Of_Legends
-LoL:League_Of_Legends rdf:type owl:Class ;
+LOL:League_Of_Legends rdf:type owl:Class ;
                       owl:equivalentClass wd:Q223341 ;
                       rdfs:comment "Rappresenta il gioco League of Legends"@it ;
                       rdfs:label "League of Legends"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Loadout
-LoL:Loadout rdf:type owl:Class ;
+LOL:Loadout rdf:type owl:Class ;
             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                         owl:onProperty LoL:picked_champion ;
+                                                         owl:onProperty LOL:picked_champion ;
                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass LoL:Campione
+                                                         owl:onClass LOL:Campione
                                                        ]
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty LoL:picked_rune_page ;
+                                                         owl:onProperty LOL:picked_rune_page ;
                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass LoL:Rune_Page
+                                                         owl:onClass LOL:Rune_Page
                                                        ]
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty LoL:picked_summoner_spells ;
+                                                         owl:onProperty LOL:picked_summoner_spells ;
                                                          owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass LoL:Summoner_Spells
+                                                         owl:onClass LOL:Summoner_Spells
                                                        ]
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty LoL:bought_objects ;
+                                                         owl:onProperty LOL:bought_objects ;
                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass LoL:Stivale
+                                                         owl:onClass LOL:Stivale
                                                        ]
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty LoL:bought_objects ;
+                                                         owl:onProperty LOL:bought_objects ;
                                                          owl:maxQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass LoL:Oggetto
+                                                         owl:onClass LOL:Oggetto
                                                        ]
                                                      ) ;
                                   rdf:type owl:Class
                                 ] ;
-            rdfs:subClassOf LoL:Role ;
+            rdfs:subClassOf LOL:Role ;
             rdfs:comment "Represents the pick, the runes and the items choosen by a player in a game"@en ;
             rdfs:label "Loadout"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Mage
-LoL:Mage rdf:type owl:Class ;
-         rdfs:subClassOf LoL:Campione ,
-                         LoL:Classe ;
+LOL:Mage rdf:type owl:Class ;
+         rdfs:subClassOf LOL:Campione ,
+                         LOL:Classe ;
          rdfs:comment "Represents champions with class Mage"@en ;
          rdfs:label "Mage"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Magic
-LoL:Magic rdf:type owl:Class ;
+LOL:Magic rdf:type owl:Class ;
           owl:equivalentClass ld:MagicProperty ,
                               [ rdf:type owl:Class ;
-                                owl:oneOf ( LoL:Ability_Haste
-                                            LoL:Ability_Power
-                                            LoL:Magic_Pen
+                                owl:oneOf ( LOL:Ability_Haste
+                                            LOL:Ability_Power
+                                            LOL:Magic_Pen
                                           )
                               ] ;
-          rdfs:subClassOf LoL:Statistiche ;
+          rdfs:subClassOf LOL:Statistiche ;
           rdfs:comment "Represents statistics correlated with magic damage"@en ;
           rdfs:label "Magic"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Mappa
-LoL:Mappa rdf:type owl:Class ;
-          rdfs:subClassOf LoL:League_Of_Legends ;
+LOL:Mappa rdf:type owl:Class ;
+          rdfs:subClassOf LOL:League_Of_Legends ;
           rdfs:comment "Rappresenta le mappe presenti nel gioco"@it ;
           rdfs:label "Mappa"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Marksman
-LoL:Marksman rdf:type owl:Class ;
-             rdfs:subClassOf LoL:Campione ,
-                             LoL:Classe ;
+LOL:Marksman rdf:type owl:Class ;
+             rdfs:subClassOf LOL:Campione ,
+                             LOL:Classe ;
              rdfs:comment "Represents champions with class Marksman"@en ;
              rdfs:label "Marksman"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Match
-LoL:Match rdf:type owl:Class ;
+LOL:Match rdf:type owl:Class ;
           owl:equivalentClass <https://www.bbc.co.uk/ontologies/sport-ontology/#Match> ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty LoL:has_modality ;
+                                owl:onProperty LOL:has_modality ;
                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass LoL:Modalità
+                                owl:onClass LOL:Modalità
                               ] ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty LoL:played_on_map ;
+                                owl:onProperty LOL:played_on_map ;
                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass LoL:Mappa
+                                owl:onClass LOL:Mappa
                               ] ;
-          rdfs:subClassOf LoL:participation:Event ;
+          rdfs:subClassOf LOL:participation:Event ;
           rdfs:comment "Represents a game match played"@en ;
           rdfs:label "Match"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Match_role
-LoL:Match_role rdf:type owl:Class ;
+LOL:Match_role rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                            owl:onProperty LoL:loadoutOfParticipant ;
-                                                            owl:someValuesFrom LoL:Loadout
+                                                            owl:onProperty LOL:loadoutOfParticipant ;
+                                                            owl:someValuesFrom LOL:Loadout
                                                           ]
                                                           [ rdf:type owl:Restriction ;
-                                                            owl:onProperty LoL:participatingInMatch ;
-                                                            owl:someValuesFrom LoL:Match
+                                                            owl:onProperty LOL:participatingInMatch ;
+                                                            owl:someValuesFrom LOL:Match
                                                           ]
                                                           [ rdf:type owl:Restriction ;
-                                                            owl:onProperty LoL:playerParticipating ;
-                                                            owl:someValuesFrom LoL:Player
+                                                            owl:onProperty LOL:playerParticipating ;
+                                                            owl:someValuesFrom LOL:Player
                                                           ]
                                                           [ rdf:type owl:Restriction ;
-                                                            owl:onProperty LoL:positionOfParticipant ;
-                                                            owl:someValuesFrom LoL:Ruoli
+                                                            owl:onProperty LOL:positionOfParticipant ;
+                                                            owl:someValuesFrom LOL:Ruoli
                                                           ]
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf LoL:ParticipantRole ;
+               rdfs:subClassOf LOL:ParticipantRole ;
                rdfs:comment "Represents the association between a match, the players that play the match, the roles of the players and their Loadouts"@en ;
                rdfs:label "Match_role"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Modalità
-LoL:Modalità rdf:type owl:Class ;
+LOL:Modalità rdf:type owl:Class ;
              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                   owl:onProperty LoL:played_in_map ;
-                                   owl:someValuesFrom LoL:Mappa
+                                   owl:onProperty LOL:played_in_map ;
+                                   owl:someValuesFrom LOL:Mappa
                                  ] ;
-             rdfs:subClassOf LoL:League_Of_Legends ;
+             rdfs:subClassOf LOL:League_Of_Legends ;
              rdfs:comment "Rappresenta le modalità di gioco presenti"@it ;
              rdfs:label "Modalità"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Modalità_a_rotazione
-LoL:Modalità_a_rotazione rdf:type owl:Class ;
-                         rdfs:subClassOf LoL:Modalità ;
+LOL:Modalità_a_rotazione rdf:type owl:Class ;
+                         rdfs:subClassOf LOL:Modalità ;
                          rdfs:comment "Rappresenta le modalità di gioco non permanenti"@it ;
                          rdfs:label "Modalità_a_rotazione"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Movement
-LoL:Movement rdf:type owl:Class ;
-             rdfs:subClassOf LoL:Statistiche ;
+LOL:Movement rdf:type owl:Class ;
+             rdfs:subClassOf LOL:Statistiche ;
              rdfs:comment "Represents movement speed statistics"@en ;
              rdfs:label "Movement"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#NPC
-LoL:NPC rdf:type owl:Class ;
+LOL:NPC rdf:type owl:Class ;
         owl:equivalentClass wd:Q466466 ;
-        rdfs:subClassOf LoL:Entity ;
+        rdfs:subClassOf LOL:Entity ;
         rdfs:comment "Represents Non Playable Character (NPC) type of entity"@en ;
         rdfs:label "NPC"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Oggetto
-LoL:Oggetto rdf:type owl:Class ;
+LOL:Oggetto rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty LoL:has_stat ;
-                                  owl:someValuesFrom LoL:Statistiche
+                                  owl:onProperty LOL:has_stat ;
+                                  owl:someValuesFrom LOL:Statistiche
                                 ] ;
-            rdfs:subClassOf LoL:Entity ;
+            rdfs:subClassOf LOL:Entity ;
             rdfs:comment "Rappresenta entità di tipo oggetto, acquistabili all'interno del gioco"@it ;
             rdfs:label "Oggetto"@it .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Oggetto_Leggendario
+LOL:Oggetto_Leggendario rdf:type owl:Class ;
+                        rdfs:subClassOf LOL:Oggetto ;
+                        owl:disjointWith LOL:Stivale ;
+                        rdfs:comment "Represents Legendary Items in the game"@en ;
+                        rdfs:label "Legendary Item"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Oggetto_Rimosso
-LoL:Oggetto_Rimosso rdf:type owl:Class ;
-                    rdfs:subClassOf LoL:Oggetto ;
+LOL:Oggetto_Rimosso rdf:type owl:Class ;
+                    rdfs:subClassOf LOL:Oggetto ;
                     rdfs:comment "Rappresenta un oggetto non acquistabile nella patch corrente"@it ;
                     rdfs:label "Oggetto_Rimosso"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Other_Rune
-LoL:Other_Rune rdf:type owl:Class ;
-               rdfs:subClassOf LoL:Path_Rune ;
+LOL:Other_Rune rdf:type owl:Class ;
+               rdfs:subClassOf LOL:Path_Rune ;
                rdfs:comment "Represents normal runes"@en ;
                rdfs:label "Other_Rune"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#ParticipantRole
-LoL:ParticipantRole rdf:type owl:Class ;
+LOL:ParticipantRole rdf:type owl:Class ;
                     rdfs:comment "Participant Role Pattern"@en ;
                     rdfs:label "ParticipantRole"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Passiva
-LoL:Passiva rdf:type owl:Class ;
-            rdfs:subClassOf LoL:Abilità ;
+LOL:Passiva rdf:type owl:Class ;
+            rdfs:subClassOf LOL:Abilità ;
             rdfs:comment "Rappresenta le abilità di un campione che sono considerate passive"@it ;
             rdfs:label "Passiva"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Path
-LoL:Path rdf:type owl:Class ;
+LOL:Path rdf:type owl:Class ;
          owl:equivalentClass [ rdf:type owl:Class ;
-                               owl:oneOf ( LoL:Domination
-                                           LoL:Inspiration
-                                           LoL:Precision
-                                           LoL:Resolve
-                                           LoL:Sorcery
+                               owl:oneOf ( LOL:Domination
+                                           LOL:Inspiration
+                                           LOL:Precision
+                                           LOL:Resolve
+                                           LOL:Sorcery
                                          )
                              ] ;
-         rdfs:subClassOf LoL:League_Of_Legends ;
+         rdfs:subClassOf LOL:League_Of_Legends ;
          rdfs:comment "Represents the rune Paths present in the game"@en ;
          rdfs:label "Path"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Path_Rune
-LoL:Path_Rune rdf:type owl:Class ;
+LOL:Path_Rune rdf:type owl:Class ;
               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                    owl:onProperty LoL:in_path ;
+                                    owl:onProperty LOL:in_path ;
                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass LoL:Path
+                                    owl:onClass LOL:Path
                                   ] ;
-              rdfs:subClassOf LoL:Rune ;
+              rdfs:subClassOf LOL:Rune ;
               rdfs:comment "Via delle rune"@it ;
               rdfs:label "Path_Rune"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Player
-LoL:Player rdf:type owl:Class ;
+LOL:Player rdf:type owl:Class ;
            owl:equivalentClass wd:Q5276395 ;
-           rdfs:subClassOf LoL:participation:Object ;
+           rdfs:subClassOf LOL:participation:Object ;
            rdfs:comment "Rappresentanta il giocatore che partecipa al gioco"@it ;
            rdfs:label "Player"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Role
-LoL:Role rdf:type owl:Class ;
-         rdfs:subClassOf LoL:League_Of_Legends ;
+LOL:Role rdf:type owl:Class ;
+         rdfs:subClassOf LOL:League_Of_Legends ;
          rdfs:comment "ParticipantRole Pattern Roles"@en ;
          rdfs:label "Role"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Rune
-LoL:Rune rdf:type owl:Class ;
-         rdfs:subClassOf LoL:League_Of_Legends ;
+LOL:Rune rdf:type owl:Class ;
+         rdfs:subClassOf LOL:League_Of_Legends ;
          rdfs:comment "Runa scelta dal giocatore"@it ;
          rdfs:label "Rune"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Rune_Page
-LoL:Rune_Page rdf:type owl:Class ;
+LOL:Rune_Page rdf:type owl:Class ;
               owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                           owl:onProperty LoL:has_keystone ;
+                                                           owl:onProperty LOL:has_keystone ;
                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                           owl:onClass LoL:Keystone
+                                                           owl:onClass LOL:Keystone
                                                          ]
                                                          [ rdf:type owl:Restriction ;
-                                                           owl:onProperty LoL:has_primary_path ;
+                                                           owl:onProperty LOL:has_primary_path ;
                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                           owl:onClass LoL:Path
+                                                           owl:onClass LOL:Path
                                                          ]
                                                          [ rdf:type owl:Restriction ;
-                                                           owl:onProperty LoL:has_secondary_path ;
+                                                           owl:onProperty LOL:has_secondary_path ;
                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                           owl:onClass LoL:Path
+                                                           owl:onClass LOL:Path
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty LoL:has_rune ;
+                                    owl:onProperty LOL:has_rune ;
                                     owl:qualifiedCardinality "6"^^xsd:nonNegativeInteger ;
-                                    owl:onClass LoL:Path_Rune
+                                    owl:onClass LOL:Path_Rune
                                   ] ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty LoL:has_shard ;
+                                    owl:onProperty LOL:has_shard ;
                                     owl:qualifiedCardinality "3"^^xsd:nonNegativeInteger ;
-                                    owl:onClass LoL:Shard
+                                    owl:onClass LOL:Shard
                                   ] ;
-              rdfs:subClassOf LoL:League_Of_Legends ;
+              rdfs:subClassOf LOL:League_Of_Legends ;
               rdfs:comment "Insieme di rune scelte dal giocatore"@it ;
               rdfs:label "Rune_Page"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ruoli
-LoL:Ruoli rdf:type owl:Class ;
+LOL:Ruoli rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Class ;
-                                owl:oneOf ( LoL:Mid
-                                            LOL:Adcarry
+                                owl:oneOf ( LOL:Adcarry
                                             LOL:Jungle
+                                            LOL:Mid
                                             LOL:Support_role
                                             LOL:Top
                                           )
                               ] ;
-          rdfs:subClassOf LoL:Role ;
+          rdfs:subClassOf LOL:Role ;
           rdfs:comment "Ruoli disponibili"@it ;
           rdfs:label "Ruoli"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Shard
-LoL:Shard rdf:type owl:Class ;
-          rdfs:subClassOf LoL:Rune ;
+LOL:Shard rdf:type owl:Class ;
+          rdfs:subClassOf LOL:Rune ;
           rdfs:comment "Elementi di gioco che possono essere utilizzati per sbloccare o temporaneamente abilitare skin per i personaggi"@it ;
           rdfs:label "Shard"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Statistiche
-LoL:Statistiche rdf:type owl:Class ;
-                rdfs:subClassOf LoL:League_Of_Legends ;
+LOL:Statistiche rdf:type owl:Class ;
+                rdfs:subClassOf LOL:League_Of_Legends ;
                 rdfs:comment "Statistiche del campione"@it ;
                 rdfs:label "Statistiche"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Stivale
-LoL:Stivale rdf:type owl:Class ;
-            rdfs:subClassOf LoL:Oggetto ;
-            owl:disjointWith LOL:Oggetto_Leggendario ;
+LOL:Stivale rdf:type owl:Class ;
+            rdfs:subClassOf LOL:Oggetto ;
             rdfs:comment "Oggetto di tipo stivale"@it ;
             rdfs:label "Stivale"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Summoner_Spells
-LoL:Summoner_Spells rdf:type owl:Class ;
+LOL:Summoner_Spells rdf:type owl:Class ;
                     owl:equivalentClass [ rdf:type owl:Class ;
                                           owl:oneOf ( LOL:Barrier
                                                       LOL:Exhaust
@@ -971,88 +976,81 @@ LoL:Summoner_Spells rdf:type owl:Class ;
                                                       LOL:Teleport
                                                     )
                                         ] ;
-                    rdfs:subClassOf LoL:League_Of_Legends ;
+                    rdfs:subClassOf LOL:League_Of_Legends ;
                     rdfs:comment "Incantesimi speciali che ogni giocatore può scegliere prima di iniziare una partita"@it ;
                     rdfs:label "Summoner Spells"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Support
-LoL:Support rdf:type owl:Class ;
-            rdfs:subClassOf LoL:Campione ,
-                            LoL:Classe ;
+LOL:Support rdf:type owl:Class ;
+            rdfs:subClassOf LOL:Campione ,
+                            LOL:Classe ;
             rdfs:comment "Ruolo dedicato al Supporto del team"@it ;
             rdfs:label "Support"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Tank
-LoL:Tank rdf:type owl:Class ;
+LOL:Tank rdf:type owl:Class ;
          owl:equivalentClass wd:Q1964626 ;
-         rdfs:subClassOf LoL:Campione ,
-                         LoL:Classe ;
+         rdfs:subClassOf LOL:Campione ,
+                         LOL:Classe ;
          rdfs:comment "Ruolo dedicato alla prima linea, con difesa molto alta"@it ;
          rdfs:label "Tank"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ultimate
-LoL:Ultimate rdf:type owl:Class ;
-             rdfs:subClassOf LoL:Abilità ;
+LOL:Ultimate rdf:type owl:Class ;
+             rdfs:subClassOf LOL:Abilità ;
              rdfs:comment "Represents Champion ability of type ultimate"@en ;
              rdfs:label "Ultimate"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:Event
-LoL:participation:Event rdf:type owl:Class ;
+LOL:participation:Event rdf:type owl:Class ;
                         rdfs:comment "Event in Participant Role Pattern"@en ;
                         rdfs:label "participation:Event"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:Object
-LoL:participation:Object rdf:type owl:Class ;
+LOL:participation:Object rdf:type owl:Class ;
                          rdfs:comment "Object in Participant Role Pattern"@en ;
                          rdfs:label "participation:Object"@en .
 
 
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Oggetto_Leggendario
-LOL:Oggetto_Leggendario rdf:type owl:Class ;
-                        rdfs:subClassOf LoL:Oggetto ;
-                        rdfs:comment "Represents Legendary Items in the game"@en ;
-                        rdfs:label "Legendary Item"@en .
-
-
 ###  https://alhakam.github.io/dot/#Damage
 <https://alhakam.github.io/dot/#Damage> rdf:type owl:Class ;
-                                        rdfs:subClassOf LoL:Statistiche .
+                                        rdfs:subClassOf LOL:Statistiche .
 
 
 ###  https://spinrdf.org/spin#MagicProperty
 ld:MagicProperty rdf:type owl:Class ;
-                 rdfs:subClassOf LoL:Statistiche .
+                 rdfs:subClassOf LOL:Statistiche .
 
 
 ###  https://www.bbc.co.uk/ontologies/sport-ontology/#Match
 <https://www.bbc.co.uk/ontologies/sport-ontology/#Match> rdf:type owl:Class ;
                                                          owl:equivalentClass wd:Q12362855 ;
-                                                         rdfs:subClassOf LoL:participation:Event .
+                                                         rdfs:subClassOf LOL:participation:Event .
 
 
 ###  https://www.wikidata.org/wiki/Q1062345
 wd:Q1062345 rdf:type owl:Class ;
-            rdfs:subClassOf LoL:Entity .
+            rdfs:subClassOf LOL:Entity .
 
 
 ###  https://www.wikidata.org/wiki/Q12362855
 wd:Q12362855 rdf:type owl:Class ;
-             rdfs:subClassOf LoL:participation:Event .
+             rdfs:subClassOf LOL:participation:Event .
 
 
 ###  https://www.wikidata.org/wiki/Q1250916
 wd:Q1250916 rdf:type owl:Class ;
-            rdfs:subClassOf LoL:Campione .
+            rdfs:subClassOf LOL:Campione .
 
 
 ###  https://www.wikidata.org/wiki/Q1964626
 wd:Q1964626 rdf:type owl:Class ;
-            rdfs:subClassOf LoL:Campione .
+            rdfs:subClassOf LOL:Campione .
 
 
 ###  https://www.wikidata.org/wiki/Q223341
@@ -1061,12 +1059,12 @@ wd:Q223341 rdf:type owl:Class .
 
 ###  https://www.wikidata.org/wiki/Q466466
 wd:Q466466 rdf:type owl:Class ;
-           rdfs:subClassOf LoL:Entity .
+           rdfs:subClassOf LOL:Entity .
 
 
 ###  https://www.wikidata.org/wiki/Q5276395
 wd:Q5276395 rdf:type owl:Class ;
-            rdfs:subClassOf LoL:participation:Object .
+            rdfs:subClassOf LOL:participation:Object .
 
 
 #################################################################
@@ -1074,53 +1072,83 @@ wd:Q5276395 rdf:type owl:Class ;
 #################################################################
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#ARAM
-LoL:ARAM rdf:type owl:NamedIndividual ,
-                  LoL:Modalità ;
-         LoL:played_in_map LoL:Howling_Abyss ;
+LOL:ARAM rdf:type owl:NamedIndividual ,
+                  LOL:Modalità ;
+         LOL:played_in_map LOL:Howling_Abyss ;
          rdfs:comment "Modalità di gioco"@it ;
          rdfs:label "ARAM"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ability_Haste
-LoL:Ability_Haste rdf:type owl:NamedIndividual ,
-                           LoL:Magic ;
+LOL:Ability_Haste rdf:type owl:NamedIndividual ,
+                           LOL:Magic ;
                   rdfs:comment "Rappresenta la  quantità di riduzione dei tempi di recupero delle abilità dei campioni per una percentuale."@it ;
                   rdfs:label "Ability Haste"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ability_Power
-LoL:Ability_Power rdf:type owl:NamedIndividual ,
-                           LoL:Magic ;
+LOL:Ability_Power rdf:type owl:NamedIndividual ,
+                           LOL:Magic ;
                   rdfs:comment "Rappresenta la  quantità Potenza magica assegnata"@it ;
                   rdfs:label "Ability Power"@it .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Adcarry
+LOL:Adcarry rdf:type owl:NamedIndividual ,
+                     LOL:Ruoli ;
+            rdfs:comment "Ad Carry Role"@en ;
+            rdfs:label "ADC"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Armor
-LoL:Armor rdf:type owl:NamedIndividual ,
-                   LoL:Defense ;
+LOL:Armor rdf:type owl:NamedIndividual ,
+                   LOL:Defense ;
           rdfs:comment "Rappresenta la  quantità Armatura assegnata"@it ;
           rdfs:label "Armor"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Attack_Damage
-LoL:Attack_Damage rdf:type owl:NamedIndividual ,
-                           LoL:Attack ;
+LOL:Attack_Damage rdf:type owl:NamedIndividual ,
+                           LOL:Attack ;
                   rdfs:comment "Rappresenta la  quantità danno di attacco."@it ;
                   rdfs:label "Attack Damage"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Attack_Speed
-LoL:Attack_Speed rdf:type owl:NamedIndividual ,
-                          LoL:Attack ;
+LOL:Attack_Speed rdf:type owl:NamedIndividual ,
+                          LOL:Attack ;
                  rdfs:comment "Rappresenta la velocità di attacco."@it ;
                  rdfs:label "Attack speed"@it .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Baron_Nashor
+LOL:Baron_Nashor rdf:type owl:NamedIndividual ,
+                          LOL:NPC ;
+                 rdfs:comment "Monster, defeating it provides a buff to the whole squad"@en ;
+                 rdfs:label "Baron Nashor"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Barrier
+LOL:Barrier rdf:type owl:NamedIndividual ,
+                     LOL:Summoner_Spells ;
+            rdfs:comment "Summoner Spell Barrier"@en ;
+            rdfs:label "Barrier"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Boots
+LOL:Boots rdf:type owl:NamedIndividual ,
+                   LOL:Stivale ;
+          LOL:MovementSpeed "25.0"^^xsd:float ;
+          LOL:has_price 300 ;
+          rdfs:comment "Item that gives player extra movement speed"@en ;
+          rdfs:label "Boots"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Caitlyin
-LoL:Caitlyin rdf:type owl:NamedIndividual ,
-                      LoL:Campione ,
-                      LoL:Marksman ;
-             LoL:has_ability LoL:Caitlyin_Ultimate ;
+LOL:Caitlyin rdf:type owl:NamedIndividual ,
+                      LOL:Campione ,
+                      LOL:Marksman ;
+             LOL:has_ability LOL:Caitlyin_Ultimate ;
              LOL:AttackDamage "60.3"^^xsd:float ;
              LOL:AttackSpeed "0.64"^^xsd:float ;
              LOL:HitPoints "500.0"^^xsd:float ;
@@ -1129,397 +1157,141 @@ LoL:Caitlyin rdf:type owl:NamedIndividual ,
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Caitlyin_Ultimate
-LoL:Caitlyin_Ultimate rdf:type owl:NamedIndividual ,
-                               LoL:Ultimate ;
-                      owl:differentFrom LoL:Zed_Ultimate ;
+LOL:Caitlyin_Ultimate rdf:type owl:NamedIndividual ,
+                               LOL:Ultimate ;
+                      owl:differentFrom LOL:Zed_Ultimate ;
                       rdfs:comment "Caitlyin ultimate ability"@en ;
                       rdfs:label "Ace in the Hole"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Caster_Minion
+LOL:Caster_Minion rdf:type owl:NamedIndividual ,
+                           LOL:NPC ;
+                  rdfs:comment "NPC ranged, last hitting it provides gold to the player"@en ;
+                  rdfs:label "Caster Minion"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Crit_chance
-LoL:Crit_chance rdf:type owl:NamedIndividual ,
-                         LoL:Attack ;
+LOL:Crit_chance rdf:type owl:NamedIndividual ,
+                         LOL:Attack ;
                 rdfs:comment "Probability that the next attack will be a critical hit"@en ;
                 rdfs:label "Critical strike chance"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Deadmans_plate
-LoL:Deadmans_plate rdf:type owl:NamedIndividual ,
-                            LoL:Oggetto ;
+LOL:Deadmans_plate rdf:type owl:NamedIndividual ,
+                            LOL:Oggetto ;
                    LOL:ArmorValue "50.0"^^xsd:float ;
                    LOL:HitPoints "400.0"^^xsd:float ;
                    rdfs:comment "League of legends Purchasable Item"@en ;
                    rdfs:label "Deadman's Plate"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Deathfire_Grasp
+LOL:Deathfire_Grasp rdf:type owl:NamedIndividual ,
+                             LOL:Oggetto_Rimosso ;
+                    LOL:AbilityPower "120.0"^^xsd:float ;
+                    LOL:has_price 3000 ;
+                    rdfs:comment "Removed Item"@en ;
+                    rdfs:label "Deathfire Grasp"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Domination
-LoL:Domination rdf:type owl:NamedIndividual ,
-                        LoL:Path ;
+LOL:Domination rdf:type owl:NamedIndividual ,
+                        LOL:Path ;
                rdfs:comment "Rune Path Domination"@en ;
                rdfs:label "Domination"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Elettrocute
-LoL:Elettrocute rdf:type owl:NamedIndividual ,
-                         LoL:Keystone ;
-                LoL:in_path LoL:Domination ;
+LOL:Elettrocute rdf:type owl:NamedIndividual ,
+                         LOL:Keystone ;
+                LOL:in_path LOL:Domination ;
                 rdfs:comment "Domination Keystone rune"@en ;
                 rdfs:label "Elettrocute"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Exhaust
+LOL:Exhaust rdf:type owl:NamedIndividual ,
+                     LOL:Summoner_Spells ;
+            rdfs:comment "Summoner Spell Exhaust"@en ;
+            rdfs:label "Exhaust"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Faker
-LoL:Faker rdf:type owl:NamedIndividual ,
-                   LoL:Player ;
+LOL:Faker rdf:type owl:NamedIndividual ,
+                   LOL:Player ;
           owl:sameAs wd:Q15618298 ;
-          LoL:rank "Challenger" ;
+          LOL:rank "Challenger" ;
           rdfs:label "Faker"@en ,
                      "Korean Professional league of legends player"@en .
 
 
 ###  https://www.wikidata.org/wiki/Q15618298
 
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#HP
-LoL:HP rdf:type owl:NamedIndividual ,
-                LoL:Defense ;
-       rdfs:comment "Represents hit-points statistic"@en ;
-       rdfs:label "Hit Points"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#HP_Regen
-LoL:HP_Regen rdf:type owl:NamedIndividual ,
-                      LoL:Defense ;
-             rdfs:comment "Represent the Hit-Point regeneration statistic"@en ;
-             rdfs:label "Hit Points Regeneration"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Howling_Abyss
-LoL:Howling_Abyss rdf:type owl:NamedIndividual ,
-                           LoL:Mappa ;
-                  rdfs:comment "League of Legends playable map"@en ;
-                  rdfs:label "Howling Abyss"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Infinity_Edge
-LoL:Infinity_Edge rdf:type owl:NamedIndividual ,
-                           LoL:Oggetto ;
-                  LoL:has_price 3500 ;
-                  LOL:AttackDamage "60.0"^^xsd:float ;
-                  LOL:CritChance "0.2"^^xsd:float ;
-                  rdfs:comment "Infinity Edge"@en ,
-                               "League of Legends Purchasable Item"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Inspiration
-LoL:Inspiration rdf:type owl:NamedIndividual ,
-                         LoL:Path ;
-                rdfs:comment "Inspiration Rune Path"@en ;
-                rdfs:label "Inspiration"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Lethality
-LoL:Lethality rdf:type owl:NamedIndividual ,
-                       LoL:Attack ;
-              rdfs:comment "Represents the Lethality Statistic"@en ;
-              rdfs:label "Lethality"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Loadout_1
-LoL:Loadout_1 rdf:type owl:NamedIndividual ,
-                       LoL:Loadout ;
-              LoL:bought_objects LoL:Infinity_Edge ;
-              LoL:picked_champion LoL:Zed ;
-              LoL:picked_rune_page LoL:rune_page1 ;
-              rdfs:comment "Player's Loadout in a game"@en ;
-              rdfs:label "Loadout_1"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Magic_Pen
-LoL:Magic_Pen rdf:type owl:NamedIndividual ,
-                       LoL:Magic ;
-              rdfs:comment "Represents Magic Penetration statistic"@en ;
-              rdfs:label "Magic Penetration"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Magic_Resist
-LoL:Magic_Resist rdf:type owl:NamedIndividual ,
-                          LoL:Defense ;
-                 rdfs:comment "Represents Magic Resistance Statistic"@en ;
-                 rdfs:label "Magic Resistance"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Mid
-LoL:Mid rdf:type owl:NamedIndividual ,
-                 LoL:Ruoli ;
-        rdfs:comment "Represents the Midlaner role"@en ;
-        rdfs:label "Midlaner"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Normal_Draft
-LoL:Normal_Draft rdf:type owl:NamedIndividual ,
-                          LoL:Modalità ;
-                 rdfs:comment "League of Legends Game mode"@en ;
-                 rdfs:label "Normal Draft"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#One_For_All
-LoL:One_For_All rdf:type owl:NamedIndividual ,
-                         LoL:Modalità_a_rotazione ;
-                LoL:played_in_map LoL:Howling_Abyss ,
-                                  LoL:Summoners_Rift ;
-                rdfs:comment "League of Legends game mode"@en ;
-                rdfs:label "One For All"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Precision
-LoL:Precision rdf:type owl:NamedIndividual ,
-                       LoL:Path ;
-              rdfs:comment "Precision Rune Path"@en ;
-              rdfs:label "Precision"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Press_the_Attack
-LoL:Press_the_Attack rdf:type owl:NamedIndividual ,
-                              LoL:Keystone ;
-                     LoL:in_path LoL:Precision ;
-                     rdfs:comment "Precision Keystone Rune"@en ;
-                     rdfs:label "Press the Attack"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Rabadons_deathcap
-LoL:Rabadons_deathcap rdf:type owl:NamedIndividual ,
-                               LoL:Oggetto ;
-                      LoL:has_price 3600 ;
-                      LOL:AbilityPower "120.0"^^xsd:float ;
-                      rdfs:comment "Purchasable Item"@en ;
-                      rdfs:label "Rabadon's Deathcap"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ranked_Flex
-LoL:Ranked_Flex rdf:type owl:NamedIndividual ,
-                         LoL:Modalità ;
-                rdfs:comment "League of Legends Game mode"@en ;
-                rdfs:label "Ranked Flex"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ranked_Solo_Duo
-LoL:Ranked_Solo_Duo rdf:type owl:NamedIndividual ,
-                             LoL:Modalità ;
-                    rdfs:comment "League of Legends game mode"@en ;
-                    rdfs:label "Ranked Solo/Duo"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Resolve
-LoL:Resolve rdf:type owl:NamedIndividual ,
-                     LoL:Path ;
-            rdfs:comment "Resolve Rune Path"@en ;
-            rdfs:label "Resolve"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Slot_1_as_shard
-LoL:Slot_1_as_shard rdf:type owl:NamedIndividual ,
-                             LoL:Shard ;
-                    rdfs:comment "Represent the slot 1 attack speed shard rune"@en ;
-                    rdfs:label "Slot 1 Attack Speed shard"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Sorcery
-LoL:Sorcery rdf:type owl:NamedIndividual ,
-                     LoL:Path ;
-            rdfs:comment "Sorcery Rune Path"@en ;
-            rdfs:label "Sorcery"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Summoners_Rift
-LoL:Summoners_Rift rdf:type owl:NamedIndividual ,
-                            LoL:Mappa ;
-                   rdfs:comment "League of Legends Map"@en ;
-                   rdfs:label "Summoner's Rift"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#T1_WBG_01
-LoL:T1_WBG_01 rdf:type owl:NamedIndividual ,
-                       LoL:Match_role ;
-              LoL:loadoutOfParticipant LoL:Loadout_1 ;
-              LoL:participatingInMatch LoL:T1_vs_WBG ;
-              LoL:playerParticipating LoL:Faker ;
-              LoL:positionOfParticipant LoL:Mid ;
-              rdfs:comment "Represents faker participating in T1 vs WBG"@en ;
-              rdfs:label "T1 WBG Faker"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#T1_vs_WBG
-LoL:T1_vs_WBG rdf:type owl:NamedIndividual ,
-                       LoL:Match ;
-              rdfs:comment "Represents the professional match Between the teams T1 and WBG"@en ;
-              rdfs:label "T1 vs WBG"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ultra_Rapid_Fire
-LoL:Ultra_Rapid_Fire rdf:type owl:NamedIndividual ,
-                              LoL:Modalità_a_rotazione ;
-                     rdfs:comment "League of Legends Game Mode"@en ;
-                     rdfs:label "Ultra Rapid Fire"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed
-LoL:Zed rdf:type owl:NamedIndividual ,
-                 LoL:Assassin ,
-                 LoL:Campione ;
-        LoL:has_ability LoL:Zed_E ,
-                        LoL:Zed_Q ,
-                        LoL:Zed_Ultimate ,
-                        LoL:Zed_W ,
-                        LoL:Zed_passive ;
-        LOL:ArmorValue "32.0"^^xsd:float ;
-        LOL:AttackDamage "63.0"^^xsd:float ;
-        LOL:HitPoints "654.0"^^xsd:float ;
-        rdfs:comment "League of Legends Champion"@en ;
-        rdfs:label "Zed"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_E
-LoL:Zed_E rdf:type owl:NamedIndividual ,
-                   LoL:Abilità ;
-          rdfs:comment "Zed ability"@en ;
-          rdfs:label "Shadow Slash"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_Q
-LoL:Zed_Q rdf:type owl:NamedIndividual ,
-                   LoL:Abilità ;
-          LoL:scales_with_stat LoL:Attack_Damage ;
-          rdfs:comment "Zed ability"@en ;
-          rdfs:label "Razor Shuriken"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_Ultimate
-LoL:Zed_Ultimate rdf:type owl:NamedIndividual ,
-                          LoL:Ultimate ;
-                 rdfs:comment "Zed Ultimate Ability"@en ;
-                 rdfs:label "Death Mark"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_W
-LoL:Zed_W rdf:type owl:NamedIndividual ,
-                   LoL:Abilità ;
-          rdfs:comment "Zed Ability"@en ;
-          rdfs:label "Living Shadow"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_passive
-LoL:Zed_passive rdf:type owl:NamedIndividual ,
-                         LoL:Passiva ;
-                LoL:ability_description """\"Innate: Zed's basic attacks against targets below 50% maximum health are empowered to deal 6 / 8 / 10% (based on level) of the target's maximum health as bonus magic damage.
-Against Monster icon monsters, Contempt for the Weak deals 200% damage, capped at 300.
-Contempt for the Weak cannot occur on the same Champion icon champion more than once every few seconds.\"""" ;
-                rdfs:comment "Zed Passive ability"@en ;
-                rdfs:label "Contempt for the Weak"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#kha_zix
-LoL:kha_zix rdf:type owl:NamedIndividual ,
-                     LoL:Assassin ,
-                     LoL:Campione ;
-            LoL:same_class LoL:Zed ;
-            LOL:ArmorValue "36.0"^^xsd:float ;
-            LOL:AttackDamage "60.0"^^xsd:float ;
-            LOL:HitPoints "643.0"^^xsd:float ;
-            LOL:MagicResist "32.0"^^xsd:float ;
-            rdfs:comment "League of Legends Champion"@en ;
-            rdfs:label "Kha'Zix"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#rune_page1
-LoL:rune_page1 rdf:type owl:NamedIndividual ,
-                        LoL:Rune_Page ;
-               LoL:has_keystone LoL:Elettrocute ;
-               LoL:has_primary_path LoL:Domination ;
-               LoL:has_rune LOL:Overheal ;
-               LoL:has_secondary_path LoL:Precision ;
-               LoL:has_shard LoL:Slot_1_as_shard ;
-               LoL:picked_in_loadout LoL:Loadout_1 ;
-               rdfs:comment "Rune Page picked by a player in a game"@en ;
-               rdfs:label "Rune Page 1"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Adcarry
-LOL:Adcarry rdf:type owl:NamedIndividual ,
-                     LoL:Ruoli ;
-            rdfs:comment "Ad Carry Role"@en ;
-            rdfs:label "ADC"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Baron_Nashor
-LOL:Baron_Nashor rdf:type owl:NamedIndividual ,
-                          LoL:NPC ;
-                 rdfs:comment "Monster, defeating it provides a buff to the whole squad"@en ;
-                 rdfs:label "Baron Nashor"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Barrier
-LOL:Barrier rdf:type owl:NamedIndividual ,
-                     LoL:Summoner_Spells ;
-            rdfs:comment "Summoner Spell Barrier"@en ;
-            rdfs:label "Barrier"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Boots
-LOL:Boots rdf:type owl:NamedIndividual ,
-                   LoL:Stivale ;
-          LoL:has_price 300 ;
-          LOL:MovementSpeed "25.0"^^xsd:float ;
-          rdfs:comment "Item that gives player extra movement speed"@en ;
-          rdfs:label "Boots"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Caster_Minion
-LOL:Caster_Minion rdf:type owl:NamedIndividual ,
-                           LoL:NPC ;
-                  rdfs:comment "NPC ranged, last hitting it provides gold to the player"@en ;
-                  rdfs:label "Caster Minion"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Deathfire_Grasp
-LOL:Deathfire_Grasp rdf:type owl:NamedIndividual ,
-                             LoL:Oggetto_Rimosso ;
-                    LoL:has_price 3000 ;
-                    LOL:AbilityPower "120.0"^^xsd:float ;
-                    rdfs:comment "Removed Item"@en ;
-                    rdfs:label "Deathfire Grasp"@en .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Exhaust
-LOL:Exhaust rdf:type owl:NamedIndividual ,
-                     LoL:Summoner_Spells ;
-            rdfs:comment "Summoner Spell Exhaust"@en ;
-            rdfs:label "Exhaust"@en .
-
-
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Flash
 LOL:Flash rdf:type owl:NamedIndividual ,
-                   LoL:Summoner_Spells ;
+                   LOL:Summoner_Spells ;
           rdfs:comment "Summoner Spell Flash"@en ;
           rdfs:label "Flash"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ghost
 LOL:Ghost rdf:type owl:NamedIndividual ,
-                   LoL:Summoner_Spells ;
+                   LOL:Summoner_Spells ;
           rdfs:comment "Summoner Spell Ghost"@en ;
           rdfs:label "Ghost"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#HP
+LOL:HP rdf:type owl:NamedIndividual ,
+                LOL:Defense ;
+       rdfs:comment "Represents hit-points statistic"@en ;
+       rdfs:label "Hit Points"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#HP_Regen
+LOL:HP_Regen rdf:type owl:NamedIndividual ,
+                      LOL:Defense ;
+             rdfs:comment "Represent the Hit-Point regeneration statistic"@en ;
+             rdfs:label "Hit Points Regeneration"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Heal
 LOL:Heal rdf:type owl:NamedIndividual ,
-                  LoL:Summoner_Spells ;
+                  LOL:Summoner_Spells ;
          rdfs:comment "Summoner Spell Heal"@en ;
          rdfs:label "Heal"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Howling_Abyss
+LOL:Howling_Abyss rdf:type owl:NamedIndividual ,
+                           LOL:Mappa ;
+                  rdfs:comment "League of Legends playable map"@en ;
+                  rdfs:label "Howling Abyss"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Infinity_Edge
+LOL:Infinity_Edge rdf:type owl:NamedIndividual ,
+                           LOL:Oggetto ;
+                  LOL:AttackDamage "60.0"^^xsd:float ;
+                  LOL:CritChance "0.2"^^xsd:float ;
+                  LOL:has_price 3500 ;
+                  rdfs:comment "Infinity Edge"@en ,
+                               "League of Legends Purchasable Item"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Inspiration
+LOL:Inspiration rdf:type owl:NamedIndividual ,
+                         LOL:Path ;
+                rdfs:comment "Inspiration Rune Path"@en ;
+                rdfs:label "Inspiration"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Jax
 LOL:Jax rdf:type owl:NamedIndividual ,
-                 LoL:Bruiser ,
-                 LoL:Campione ;
+                 LOL:Bruiser ,
+                 LOL:Campione ;
         LOL:ArmorValue "36.0"^^xsd:float ;
         LOL:AttackDamage "68.0"^^xsd:float ;
         LOL:HitPoints "665.0"^^xsd:float ;
@@ -1529,35 +1301,64 @@ LOL:Jax rdf:type owl:NamedIndividual ,
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Jungle
 LOL:Jungle rdf:type owl:NamedIndividual ,
-                    LoL:Ruoli ;
+                    LOL:Ruoli ;
            rdfs:comment "Represents the Jungler role"@en ;
            rdfs:label "Jungler"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Krug
 LOL:Krug rdf:type owl:NamedIndividual ,
-                  LoL:NPC ;
+                  LOL:NPC ;
          rdfs:comment "Monster, defeating it gives gold and experience"@en ;
          rdfs:label "Krug"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Leona
 LOL:Leona rdf:type owl:NamedIndividual ,
-                   LoL:Campione ,
-                   LoL:Support ,
-                   LoL:Tank ;
-          LoL:lore "Imbued with the fire of the sun, Leona is a holy warrior of the Solari who defends Mount Targon with her Zenith Blade and the Shield of Daybreak. Her skin shimmers with starfire while her eyes burn with the power of the celestial Aspect within her. Armored in gold and bearing a terrible burden of ancient knowledge, Leona brings enlightenment to some, death to others." ;
+                   LOL:Campione ,
+                   LOL:Support ,
+                   LOL:Tank ;
           LOL:ArmorValue "47.0"^^xsd:float ;
           LOL:AttackDamage "60.0"^^xsd:float ;
           LOL:HitPoints "646.0"^^xsd:float ;
           LOL:MagicResist "32.0"^^xsd:float ;
+          LOL:lore "Imbued with the fire of the sun, Leona is a holy warrior of the Solari who defends Mount Targon with her Zenith Blade and the Shield of Daybreak. Her skin shimmers with starfire while her eyes burn with the power of the celestial Aspect within her. Armored in gold and bearing a terrible burden of ancient knowledge, Leona brings enlightenment to some, death to others." ;
           rdfs:comment "Playable Champion"@en ;
           rdfs:label "Leona"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Lethality
+LOL:Lethality rdf:type owl:NamedIndividual ,
+                       LOL:Attack .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Loadout_1
+LOL:Loadout_1 rdf:type owl:NamedIndividual ,
+                       LOL:Loadout ;
+              LOL:bought_objects LOL:Infinity_Edge ;
+              LOL:picked_champion LOL:Zed ;
+              LOL:picked_rune_page LOL:rune_page1 ;
+              rdfs:comment "Player's Loadout in a game"@en ;
+              rdfs:label "Loadout_1"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Magic_Pen
+LOL:Magic_Pen rdf:type owl:NamedIndividual ,
+                       LOL:Magic ;
+              rdfs:comment "Represents Magic Penetration statistic"@en ;
+              rdfs:label "Magic Penetration"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Magic_Resist
+LOL:Magic_Resist rdf:type owl:NamedIndividual ,
+                          LOL:Defense ;
+                 rdfs:comment "Represents Magic Resistance Statistic"@en ;
+                 rdfs:label "Magic Resistance"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Malphite
 LOL:Malphite rdf:type owl:NamedIndividual ,
-                      LoL:Campione ,
+                      LOL:Campione ,
                       wd:Q1964626 ;
              LOL:ArmorValue "37.0"^^xsd:float ;
              LOL:HitPoints "644.0"^^xsd:float ;
@@ -1566,110 +1367,279 @@ LOL:Malphite rdf:type owl:NamedIndividual ,
              rdfs:label "Malphite"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Mid
+LOL:Mid rdf:type owl:NamedIndividual ,
+                 LOL:Ruoli ;
+        rdfs:comment "Represents the Midlaner role"@en ;
+        rdfs:label "Midlaner"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#MovementSpeedFlat
 LOL:MovementSpeedFlat rdf:type owl:NamedIndividual ,
-                               LoL:Movement ;
+                               LOL:Movement ;
                       rdfs:comment "Entity Statistic"@en ;
                       rdfs:label "MovementSpeedFlat"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#MovementSpeedScaling
 LOL:MovementSpeedScaling rdf:type owl:NamedIndividual ,
-                                  LoL:Movement ;
+                                  LOL:Movement ;
                          rdfs:comment "Entity Statistic"@en ;
                          rdfs:label "MovementSpeedScaling"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Normal_Draft
+LOL:Normal_Draft rdf:type owl:NamedIndividual ,
+                          LOL:Modalità ;
+                 rdfs:comment "League of Legends Game mode"@en ;
+                 rdfs:label "Normal Draft"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#One_For_All
+LOL:One_For_All rdf:type owl:NamedIndividual ,
+                         LOL:Modalità_a_rotazione ;
+                LOL:played_in_map LOL:Howling_Abyss ,
+                                  LOL:Summoners_Rift ;
+                rdfs:comment "League of Legends game mode"@en ;
+                rdfs:label "One For All"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Orianna
 LOL:Orianna rdf:type owl:NamedIndividual ,
-                     LoL:Campione ,
-                     LoL:Mage ;
+                     LOL:Campione ,
+                     LOL:Mage ;
             rdfs:comment "Playable Champion"@en ;
             rdfs:label "Orianna"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Overheal
 LOL:Overheal rdf:type owl:NamedIndividual ,
-                      LoL:Path_Rune ;
-             LoL:in_path LoL:Precision ;
+                      LOL:Path_Rune ;
+             LOL:in_path LOL:Precision ;
              rdfs:comment "Rune in Precision path"@en ;
              rdfs:label "Overheal"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Precision
+LOL:Precision rdf:type owl:NamedIndividual ,
+                       LOL:Path ;
+              rdfs:comment "Precision Rune Path"@en ;
+              rdfs:label "Precision"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Press_the_Attack
+LOL:Press_the_Attack rdf:type owl:NamedIndividual ,
+                              LOL:Keystone ;
+                     LOL:in_path LOL:Precision ;
+                     rdfs:comment "Precision Keystone Rune"@en ;
+                     rdfs:label "Press the Attack"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Rabadons_deathcap
+LOL:Rabadons_deathcap rdf:type owl:NamedIndividual ,
+                               LOL:Oggetto ;
+                      LOL:AbilityPower "120.0"^^xsd:float ;
+                      LOL:has_price 3600 ;
+                      rdfs:comment "Purchasable Item"@en ;
+                      rdfs:label "Rabadon's Deathcap"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ranked_Flex
+LOL:Ranked_Flex rdf:type owl:NamedIndividual ,
+                         LOL:Modalità ;
+                rdfs:comment "League of Legends Game mode"@en ;
+                rdfs:label "Ranked Flex"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ranked_Solo_Duo
+LOL:Ranked_Solo_Duo rdf:type owl:NamedIndividual ,
+                             LOL:Modalità ;
+                    rdfs:comment "League of Legends game mode"@en ;
+                    rdfs:label "Ranked Solo/Duo"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Resolve
+LOL:Resolve rdf:type owl:NamedIndividual ,
+                     LOL:Path ;
+            rdfs:comment "Resolve Rune Path"@en ;
+            rdfs:label "Resolve"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ruler
 LOL:Ruler rdf:type owl:NamedIndividual ,
-                   LoL:Player ;
+                   LOL:Player ;
           owl:sameAs wd:Q97420245 ;
-          LoL:rank "Challenger" ;
+          LOL:rank "Challenger" ;
           rdfs:comment "Korean League of Legends Professional Player"@en ;
           rdfs:label "Ruler"@en .
 
 
 ###  https://www.wikidata.org/wiki/Q97420245
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Slot_1_as_shard
+LOL:Slot_1_as_shard rdf:type owl:NamedIndividual ,
+                             LOL:Shard ;
+                    rdfs:comment "Represent the slot 1 attack speed shard rune"@en ;
+                    rdfs:label "Slot 1 Attack Speed shard"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Sorcery
+LOL:Sorcery rdf:type owl:NamedIndividual ,
+                     LOL:Path ;
+            rdfs:comment "Sorcery Rune Path"@en ;
+            rdfs:label "Sorcery"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Summoners_Rift
+LOL:Summoners_Rift rdf:type owl:NamedIndividual ,
+                            LOL:Mappa ;
+                   rdfs:comment "League of Legends Map"@en ;
+                   rdfs:label "Summoner's Rift"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Super_Minion
 LOL:Super_Minion rdf:type owl:NamedIndividual ,
-                          LoL:NPC ;
+                          LOL:NPC ;
                  rdfs:comment "NPC, spawns when an inibithor is destroyed"@en ;
                  rdfs:label "Super Minion"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Support_role
 LOL:Support_role rdf:type owl:NamedIndividual ,
-                          LoL:Ruoli ;
+                          LOL:Ruoli ;
                  rdfs:comment "Represent the Support role"@en ;
                  rdfs:label "Support"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#T1_WBG_01
+LOL:T1_WBG_01 rdf:type owl:NamedIndividual ,
+                       LOL:Match_role ;
+              LOL:loadoutOfParticipant LOL:Loadout_1 ;
+              LOL:participatingInMatch LOL:T1_vs_WBG ;
+              LOL:playerParticipating LOL:Faker ;
+              LOL:positionOfParticipant LOL:Mid ;
+              rdfs:comment "Represents faker participating in T1 vs WBG"@en ;
+              rdfs:label "T1 WBG Faker"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#T1_vs_JDG
 LOL:T1_vs_JDG rdf:type owl:NamedIndividual ,
-                       LoL:Match ;
+                       LOL:Match ;
               rdfs:comment "Represents the Professional Match between the teams T1 and JDG"@en ;
               rdfs:label "T1 vs JDG"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#T1_vs_JDG_01
 LOL:T1_vs_JDG_01 rdf:type owl:NamedIndividual ,
-                          LoL:Match_role ;
-                 LoL:participatingInEvent LOL:T1_vs_JDG ;
-                 LoL:playerParticipating LoL:Faker ;
+                          LOL:Match_role ;
+                 LOL:participatingInEvent LOL:T1_vs_JDG ;
+                 LOL:playerParticipating LOL:Faker ;
                  rdfs:comment "Represents Faker's participating in the match T1 vs JDG"@en ;
                  rdfs:label "T1 vs JDG Faker"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#T1_vs_JDG_02
 LOL:T1_vs_JDG_02 rdf:type owl:NamedIndividual ,
-                          LoL:Match_role ;
-                 LoL:participatingInEvent LOL:T1_vs_JDG ;
-                 LoL:playerParticipating LOL:Ruler ;
+                          LOL:Match_role ;
+                 LOL:participatingInEvent LOL:T1_vs_JDG ;
+                 LOL:playerParticipating LOL:Ruler ;
                  rdfs:comment "Represents Ruler Participating in the T1 vs JDG match"@en ;
                  rdfs:label "T1 vs JDG Ruler"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#T1_vs_WBG
+LOL:T1_vs_WBG rdf:type owl:NamedIndividual ,
+                       LOL:Match ;
+              rdfs:comment "Represents the professional match Between the teams T1 and WBG"@en ;
+              rdfs:label "T1 vs WBG"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Teleport
 LOL:Teleport rdf:type owl:NamedIndividual ,
-                      LoL:Summoner_Spells ;
+                      LOL:Summoner_Spells ;
              rdfs:comment "Summoner Spell Teleport"@en ;
              rdfs:label "Teleport"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Top
 LOL:Top rdf:type owl:NamedIndividual ,
-                 LoL:Ruoli ;
+                 LOL:Ruoli ;
         rdfs:comment "Represents the toplaner role"@en ;
         rdfs:label "Toplaner"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Tournament_Mode
 LOL:Tournament_Mode rdf:type owl:NamedIndividual ,
-                             LoL:Modalità ;
+                             LOL:Modalità ;
                     rdfs:comment "League of Legends Game Mode"@en ;
                     rdfs:label "Tournament Mode"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Ultra_Rapid_Fire
+LOL:Ultra_Rapid_Fire rdf:type owl:NamedIndividual ,
+                              LOL:Modalità_a_rotazione ;
+                     rdfs:comment "League of Legends Game Mode"@en ;
+                     rdfs:label "Ultra Rapid Fire"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed
+LOL:Zed rdf:type owl:NamedIndividual ,
+                 LOL:Assassin ,
+                 LOL:Campione ;
+        LOL:has_ability LOL:Zed_E ,
+                        LOL:Zed_Q ,
+                        LOL:Zed_Ultimate ,
+                        LOL:Zed_W ,
+                        LOL:Zed_passive ;
+        LOL:ArmorValue "32.0"^^xsd:float ;
+        LOL:AttackDamage "63.0"^^xsd:float ;
+        LOL:HitPoints "654.0"^^xsd:float ;
+        rdfs:comment "League of Legends Champion"@en ;
+        rdfs:label "Zed"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_E
+LOL:Zed_E rdf:type owl:NamedIndividual ,
+                   LOL:Abilità ;
+          rdfs:comment "Zed ability"@en ;
+          rdfs:label "Shadow Slash"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_Q
+LOL:Zed_Q rdf:type owl:NamedIndividual ,
+                   LOL:Abilità ;
+          LOL:scales_with_stat LOL:Attack_Damage ;
+          rdfs:comment "Zed ability"@en ;
+          rdfs:label "Razor Shuriken"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_Ultimate
+LOL:Zed_Ultimate rdf:type owl:NamedIndividual ,
+                          LOL:Ultimate ;
+                 rdfs:comment "Zed Ultimate Ability"@en ;
+                 rdfs:label "Death Mark"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_W
+LOL:Zed_W rdf:type owl:NamedIndividual ,
+                   LOL:Abilità ;
+          rdfs:comment "Zed Ability"@en ;
+          rdfs:label "Living Shadow"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zed_passive
+LOL:Zed_passive rdf:type owl:NamedIndividual ,
+                         LOL:Passiva ;
+                LOL:ability_description """\"Innate: Zed's basic attacks against targets below 50% maximum health are empowered to deal 6 / 8 / 10% (based on level) of the target's maximum health as bonus magic damage.
+Against Monster icon monsters, Contempt for the Weak deals 200% damage, capped at 300.
+Contempt for the Weak cannot occur on the same Champion icon champion more than once every few seconds.\"""" ;
+                rdfs:comment "Zed Passive ability"@en ;
+                rdfs:label "Contempt for the Weak"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Zeus
 LOL:Zeus rdf:type owl:NamedIndividual ,
-                  LoL:Player ;
+                  LOL:Player ;
          owl:sameAs wd:Q105488493 ;
          rdfs:comment "Korean Professional League of Legends Player"@en ;
          rdfs:label "Zeus"@en .
@@ -1677,12 +1647,38 @@ LOL:Zeus rdf:type owl:NamedIndividual ,
 
 ###  https://www.wikidata.org/wiki/Q105488493
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#kha_zix
+LOL:kha_zix rdf:type owl:NamedIndividual ,
+                     LOL:Assassin ,
+                     LOL:Campione ;
+            LOL:same_class LOL:Zed ;
+            LOL:ArmorValue "36.0"^^xsd:float ;
+            LOL:AttackDamage "60.0"^^xsd:float ;
+            LOL:HitPoints "643.0"^^xsd:float ;
+            LOL:MagicResist "32.0"^^xsd:float ;
+            rdfs:comment "League of Legends Champion"@en ;
+            rdfs:label "Kha'Zix"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#rune_page1
+LOL:rune_page1 rdf:type owl:NamedIndividual ,
+                        LOL:Rune_Page ;
+               LOL:has_keystone LOL:Elettrocute ;
+               LOL:has_primary_path LOL:Domination ;
+               LOL:has_rune LOL:Overheal ;
+               LOL:has_secondary_path LOL:Precision ;
+               LOL:has_shard LOL:Slot_1_as_shard ;
+               LOL:picked_in_loadout LOL:Loadout_1 ;
+               rdfs:comment "Rune Page picked by a player in a game"@en ;
+               rdfs:label "Rune Page 1"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Runaan's_Hurricane
 <http://www.semanticweb.org/gfazor/ontologies/LOL#Runaan's_Hurricane> rdf:type owl:NamedIndividual ,
-                                                                               LoL:Oggetto ;
-                                                                      LoL:has_price 2900 ;
+                                                                               LOL:Oggetto ;
                                                                       LOL:AttackSpeed "0.4"^^xsd:float ;
                                                                       LOL:CritChance "0.2"^^xsd:float ;
+                                                                      LOL:has_price 2900 ;
                                                                       rdfs:comment "Purchasable Item"@en ;
                                                                       rdfs:label "Runaan's Hurricane"@en .
 
@@ -1700,23 +1696,32 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
 
 
 #################################################################
+#    Annotations
+#################################################################
+
+LOL:Lethality rdfs:comment "Armor Penetration Flat (lethality) value"@en ,
+                           "Represents the Lethality Statistic"@en ;
+              rdfs:label "Lethality"@en .
+
+
+#################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( LoL:Campione
-                LoL:NPC
-                LoL:Oggetto
+  owl:members ( LOL:Campione
+                LOL:NPC
+                LOL:Oggetto
               )
 ] .
 
 
 [ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( LoL:Domination
-                        LoL:Inspiration
-                        LoL:Precision
-                        LoL:Resolve
-                        LoL:Sorcery
+  owl:distinctMembers ( LOL:Domination
+                        LOL:Inspiration
+                        LOL:Precision
+                        LOL:Resolve
+                        LOL:Sorcery
                       )
 ] .
 
@@ -1738,21 +1743,21 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
 #    Rules
 #################################################################
 
-:x rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/x> rdf:type swrl:Variable .
 
-:y rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/y> rdf:type swrl:Variable .
 
-:z rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/z> rdf:type swrl:Variable .
 
-:k rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/k> rdf:type swrl:Variable .
 
-:h rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/h> rdf:type swrl:Variable .
 
-:e rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/e> rdf:type swrl:Variable .
 
-:v rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/v> rdf:type swrl:Variable .
 
-:o rdf:type swrl:Variable .
+<http://www.semanticweb.org/gfazor/ontologies/LOL/o> rdf:type swrl:Variable .
 
 <urn:swrl:var#o> rdf:type swrl:Variable .
 
@@ -1764,52 +1769,52 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LoL:Match_role ;
-                           swrl:argument1 :x
+                           swrl:classPredicate LOL:Match_role ;
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/x>
                          ] ;
                rdf:rest [ rdf:type swrl:AtomList ;
                           rdf:first [ rdf:type swrl:ClassAtom ;
-                                      swrl:classPredicate LoL:Player ;
-                                      swrl:argument1 :y
+                                      swrl:classPredicate LOL:Player ;
+                                      swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/y>
                                     ] ;
                           rdf:rest [ rdf:type swrl:AtomList ;
                                      rdf:first [ rdf:type swrl:ClassAtom ;
-                                                 swrl:classPredicate LoL:Loadout ;
-                                                 swrl:argument1 :z
+                                                 swrl:classPredicate LOL:Loadout ;
+                                                 swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/z>
                                                ] ;
                                      rdf:rest [ rdf:type swrl:AtomList ;
                                                 rdf:first [ rdf:type swrl:ClassAtom ;
-                                                            swrl:classPredicate LoL:Ruoli ;
-                                                            swrl:argument1 :k
+                                                            swrl:classPredicate LOL:Ruoli ;
+                                                            swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/k>
                                                           ] ;
                                                 rdf:rest [ rdf:type swrl:AtomList ;
                                                            rdf:first [ rdf:type swrl:ClassAtom ;
-                                                                       swrl:classPredicate LoL:Campione ;
-                                                                       swrl:argument1 :h
+                                                                       swrl:classPredicate LOL:Campione ;
+                                                                       swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/h>
                                                                      ] ;
                                                            rdf:rest [ rdf:type swrl:AtomList ;
                                                                       rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                                                  swrl:propertyPredicate LoL:playerParticipating ;
-                                                                                  swrl:argument1 :x ;
-                                                                                  swrl:argument2 :y
+                                                                                  swrl:propertyPredicate LOL:playerParticipating ;
+                                                                                  swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/x> ;
+                                                                                  swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/y>
                                                                                 ] ;
                                                                       rdf:rest [ rdf:type swrl:AtomList ;
                                                                                  rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                                                             swrl:propertyPredicate LoL:positionOfParticipant ;
-                                                                                             swrl:argument1 :x ;
-                                                                                             swrl:argument2 :k
+                                                                                             swrl:propertyPredicate LOL:positionOfParticipant ;
+                                                                                             swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/x> ;
+                                                                                             swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/k>
                                                                                            ] ;
                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
                                                                                             rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                                                                        swrl:propertyPredicate LoL:loadoutOfParticipant ;
-                                                                                                        swrl:argument1 :x ;
-                                                                                                        swrl:argument2 :z
+                                                                                                        swrl:propertyPredicate LOL:loadoutOfParticipant ;
+                                                                                                        swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/x> ;
+                                                                                                        swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/z>
                                                                                                       ] ;
                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
                                                                                                        rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                                                                                   swrl:propertyPredicate LoL:picked_champion ;
-                                                                                                                   swrl:argument1 :z ;
-                                                                                                                   swrl:argument2 :h
+                                                                                                                   swrl:propertyPredicate LOL:picked_champion ;
+                                                                                                                   swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/z> ;
+                                                                                                                   swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/h>
                                                                                                                  ] ;
                                                                                                        rdf:rest rdf:nil
                                                                                                      ]
@@ -1824,8 +1829,8 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
    swrl:head [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                            swrl:propertyPredicate LOL:playedInRole ;
-                           swrl:argument1 :h ;
-                           swrl:argument2 :k
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/h> ;
+                           swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/k>
                          ] ;
                rdf:rest rdf:nil
              ]
@@ -1837,23 +1842,23 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LoL:Oggetto ;
-                           swrl:argument1 :e
+                           swrl:classPredicate LOL:Oggetto ;
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/e>
                          ] ;
                rdf:rest [ rdf:type swrl:AtomList ;
                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
                                       swrl:propertyPredicate LOL:AttackDamage ;
-                                      swrl:argument1 :e ;
-                                      swrl:argument2 :v
+                                      swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/e> ;
+                                      swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/v>
                                     ] ;
                           rdf:rest rdf:nil
                         ]
              ] ;
    swrl:head [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                           swrl:propertyPredicate LoL:has_stat ;
-                           swrl:argument1 :e ;
-                           swrl:argument2 LoL:Attack_Damage
+                           swrl:propertyPredicate LOL:has_stat ;
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/e> ;
+                           swrl:argument2 LOL:Attack_Damage
                          ] ;
                rdf:rest rdf:nil
              ]
@@ -1865,23 +1870,23 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LoL:Oggetto ;
-                           swrl:argument1 :o
+                           swrl:classPredicate LOL:Oggetto ;
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/o>
                          ] ;
                rdf:rest [ rdf:type swrl:AtomList ;
                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
                                       swrl:propertyPredicate LOL:AbilityPower ;
-                                      swrl:argument1 :o ;
-                                      swrl:argument2 :v
+                                      swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/o> ;
+                                      swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/v>
                                     ] ;
                           rdf:rest rdf:nil
                         ]
              ] ;
    swrl:head [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                           swrl:propertyPredicate LoL:has_stat ;
-                           swrl:argument1 :o ;
-                           swrl:argument2 LoL:Ability_Power
+                           swrl:propertyPredicate LOL:has_stat ;
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/o> ;
+                           swrl:argument2 LOL:Ability_Power
                          ] ;
                rdf:rest rdf:nil
              ]
@@ -1893,23 +1898,50 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LoL:Oggetto ;
-                           swrl:argument1 :o
+                           swrl:classPredicate LOL:Oggetto ;
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/o>
                          ] ;
                rdf:rest [ rdf:type swrl:AtomList ;
                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
                                       swrl:propertyPredicate LOL:ArmorValue ;
-                                      swrl:argument1 :o ;
-                                      swrl:argument2 :v
+                                      swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/o> ;
+                                      swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/v>
                                     ] ;
                           rdf:rest rdf:nil
                         ]
              ] ;
    swrl:head [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                           swrl:propertyPredicate LoL:has_stat ;
-                           swrl:argument1 :o ;
-                           swrl:argument2 LoL:Armor
+                           swrl:propertyPredicate LOL:has_stat ;
+                           swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/o> ;
+                           swrl:argument2 LOL:Armor
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ rdfs:comment "If an item has AttackSpeed stat then the Item has an object property 'has_stat' with 'Attack_Speed'"@en ;
+   rdfs:label "Has AttackSpeed"@en ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate LOL:Oggetto ;
+                           swrl:argument1 <urn:swrl:var#o>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate LOL:AttackSpeed ;
+                                      swrl:argument1 <urn:swrl:var#o> ;
+                                      swrl:argument2 <urn:swrl:var#v>
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate LOL:has_stat ;
+                           swrl:argument1 <urn:swrl:var#o> ;
+                           swrl:argument2 LOL:Attack_Speed
                          ] ;
                rdf:rest rdf:nil
              ]
@@ -1921,12 +1953,12 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LoL:Oggetto ;
+                           swrl:classPredicate LOL:Oggetto ;
                            swrl:argument1 <urn:swrl:var#o>
                          ] ;
                rdf:rest [ rdf:type swrl:AtomList ;
                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
-                                      swrl:propertyPredicate LoL:has_price ;
+                                      swrl:propertyPredicate LOL:has_price ;
                                       swrl:argument1 <urn:swrl:var#o> ;
                                       swrl:argument2 <urn:swrl:var#v>
                                     ] ;
@@ -1949,33 +1981,6 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
                rdf:first [ rdf:type swrl:ClassAtom ;
                            swrl:classPredicate LOL:Oggetto_Leggendario ;
                            swrl:argument1 <urn:swrl:var#o>
-                         ] ;
-               rdf:rest rdf:nil
-             ]
- ] .
-
-[ rdfs:comment "If an item has AttackSpeed stat then the Item has an object property 'has_stat' with 'Attack_Speed'"@en ;
-   rdfs:label "Has AttackSpeed"@en ;
-   rdf:type swrl:Imp ;
-   swrl:body [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LoL:Oggetto ;
-                           swrl:argument1 <urn:swrl:var#o>
-                         ] ;
-               rdf:rest [ rdf:type swrl:AtomList ;
-                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
-                                      swrl:propertyPredicate LOL:AttackSpeed ;
-                                      swrl:argument1 <urn:swrl:var#o> ;
-                                      swrl:argument2 <urn:swrl:var#v>
-                                    ] ;
-                          rdf:rest rdf:nil
-                        ]
-             ] ;
-   swrl:head [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                           swrl:propertyPredicate LoL:has_stat ;
-                           swrl:argument1 <urn:swrl:var#o> ;
-                           swrl:argument2 LoL:Attack_Speed
                          ] ;
                rdf:rest rdf:nil
              ]
