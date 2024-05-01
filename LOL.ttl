@@ -67,7 +67,7 @@ LoL:ability_of rdf:type owl:ObjectProperty ;
                owl:inverseOf LoL:has_ability ;
                rdfs:domain LoL:Abilità ;
                rdfs:range LoL:Campione ;
-               rdfs:comment ""@it ;
+               rdfs:comment "Abilità Usabile da un campione"@it ;
                rdfs:label "ability_of"@it .
 
 
@@ -423,8 +423,7 @@ LOL:playedInRole rdf:type owl:ObjectProperty ;
 LoL:ability_description rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf owl:topDataProperty ;
                         rdfs:domain LoL:Abilità ;
-                        rdfs:range xsd:float ,
-                                   xsd:string ;
+                        rdfs:range xsd:string ;
                         rdfs:comment "Descrizione dell'abilità"@it ;
                         rdfs:label "ability_description"@it .
 
@@ -447,24 +446,6 @@ LoL:lore rdf:type owl:DatatypeProperty ;
          rdfs:label "lore"@it .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#match_date
-LoL:match_date rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf owl:topDataProperty ;
-               rdfs:domain LoL:Match ;
-               rdfs:range xsd:dateTime ;
-               rdfs:comment "Data del match"@it ;
-               rdfs:label "match_date"@it .
-
-
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#number_player
-LoL:number_player rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf owl:topDataProperty ;
-                  rdfs:domain LoL:Modalità ;
-                  rdfs:range xsd:int ;
-                  rdfs:comment "Numero di giocatori"@it ;
-                  rdfs:label "number_player"@it .
-
-
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#rank
 LoL:rank rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
@@ -474,65 +455,76 @@ LoL:rank rdf:type owl:DatatypeProperty ;
          rdfs:label "rank"@it .
 
 
-###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#release_date
-LoL:release_date rdf:type owl:DatatypeProperty ;
-                 rdfs:subPropertyOf owl:topDataProperty ;
-                 rdfs:domain LoL:Campione ;
-                 rdfs:range xsd:dateTime ;
-                 rdfs:comment "Data di rilascio"@it ;
-                 rdfs:label "release_date"@it .
-
-
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#AbilityPower
 LOL:AbilityPower rdf:type owl:DatatypeProperty ;
-                 rdfs:subPropertyOf LOL:Statistics .
+                 rdfs:subPropertyOf LOL:Statistics ;
+                 rdfs:comment "Ability Power Value"@en ;
+                 rdfs:label "AbilityPower"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#ArmorValue
 LOL:ArmorValue rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf LOL:Statistics .
+               rdfs:subPropertyOf LOL:Statistics ;
+               rdfs:comment "Statistic Armor Value"@en ;
+               rdfs:label "Armor"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#AttackDamage
 LOL:AttackDamage rdf:type owl:DatatypeProperty ;
-                 rdfs:subPropertyOf LOL:Statistics .
+                 rdfs:subPropertyOf LOL:Statistics ;
+                 rdfs:comment "Attack Damage Value"@en ;
+                 rdfs:label "AttackDamage"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#AttackSpeed
 LOL:AttackSpeed rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf LOL:Statistics .
+                rdfs:subPropertyOf LOL:Statistics ;
+                rdfs:comment "Attack Speed Value"@en ;
+                rdfs:label "AttackSpeed"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#CritChance
 LOL:CritChance rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf LOL:Statistics .
+               rdfs:subPropertyOf LOL:Statistics ;
+               rdfs:comment "Critical Strike Chance Value"@en ;
+               rdfs:label "CritChance"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#HitPoints
 LOL:HitPoints rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf LOL:Statistics .
+              rdfs:subPropertyOf LOL:Statistics ;
+              rdfs:comment "Hit Points Value"@en ;
+              rdfs:label "HitPoints"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Lethality
 LOL:Lethality rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf LOL:Statistics .
+              rdfs:subPropertyOf LOL:Statistics ;
+              rdfs:comment "Armor Penetration Flat (lethality) value"@en ;
+              rdfs:label "Lethality"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#MagicResist
 LOL:MagicResist rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf LOL:Statistics .
+                rdfs:subPropertyOf LOL:Statistics ;
+                rdfs:comment "Magic Resistance value"@en ;
+                rdfs:label "MagicResist"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#MovementSpeed
+LOL:MovementSpeed rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf LOL:Statistics ;
+                  rdfs:comment "Movement Speed Value"@en ;
+                  rdfs:label "MovementSpeed"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Statistics
 LOL:Statistics rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf owl:topDataProperty ;
-               rdfs:domain LoL:Entity .
-
-
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#itemType
-LOL:itemType rdf:type owl:DatatypeProperty ;
-             rdfs:domain LoL:Oggetto ;
-             rdfs:range xsd:string .
+               rdfs:domain LoL:Entity ;
+               rdfs:range xsd:float ;
+               rdfs:comment "Entities Statistics values"@en ;
+               rdfs:label "Statistics"@en .
 
 
 #################################################################
@@ -551,6 +543,7 @@ LoL:Abilità rdf:type owl:Class ;
                                   owl:onProperty LoL:scales_with_stat ;
                                   owl:someValuesFrom LoL:Statistiche
                                 ] ;
+            rdfs:subClassOf LoL:League_Of_Legends ;
             rdfs:comment "Rappresenta le abilità utilizzabili da un campione"@it ;
             rdfs:label "Abilità"@it .
 
@@ -618,6 +611,7 @@ LoL:Campione rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Classe
 LoL:Classe rdf:type owl:Class ;
+           rdfs:subClassOf LoL:League_Of_Legends ;
            rdfs:comment "Rappresenta le classi di un campione"@it ;
            rdfs:label "Classe"@it .
 
@@ -638,6 +632,7 @@ LoL:Defense rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Entity
 LoL:Entity rdf:type owl:Class ;
+           rdfs:subClassOf LoL:League_Of_Legends ;
            rdfs:comment "Represents entities in game"@en ;
            rdfs:label "Entity"@en .
 
@@ -716,6 +711,7 @@ LoL:Magic rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Mappa
 LoL:Mappa rdf:type owl:Class ;
+          rdfs:subClassOf LoL:League_Of_Legends ;
           rdfs:comment "Rappresenta le mappe presenti nel gioco"@it ;
           rdfs:label "Mappa"@it .
 
@@ -778,6 +774,7 @@ LoL:Modalità rdf:type owl:Class ;
                                    owl:onProperty LoL:played_in_map ;
                                    owl:someValuesFrom LoL:Mappa
                                  ] ;
+             rdfs:subClassOf LoL:League_Of_Legends ;
              rdfs:comment "Rappresenta le modalità di gioco presenti"@it ;
              rdfs:label "Modalità"@it .
 
@@ -830,7 +827,9 @@ LoL:Other_Rune rdf:type owl:Class ;
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#ParticipantRole
-LoL:ParticipantRole rdf:type owl:Class .
+LoL:ParticipantRole rdf:type owl:Class ;
+                    rdfs:comment "Participant Role Pattern"@en ;
+                    rdfs:label "ParticipantRole"@en .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Passiva
@@ -850,6 +849,7 @@ LoL:Path rdf:type owl:Class ;
                                            LoL:Sorcery
                                          )
                              ] ;
+         rdfs:subClassOf LoL:League_Of_Legends ;
          rdfs:comment "Represents the rune Paths present in the game"@en ;
          rdfs:label "Path"@en .
 
@@ -876,12 +876,14 @@ LoL:Player rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Role
 LoL:Role rdf:type owl:Class ;
-         rdfs:comment "Ruolo scelto dal giocatore"@it ;
+         rdfs:subClassOf LoL:League_Of_Legends ;
+         rdfs:comment "ParticipantRole Pattern Roles"@en ;
          rdfs:label "Role"@it .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Rune
 LoL:Rune rdf:type owl:Class ;
+         rdfs:subClassOf LoL:League_Of_Legends ;
          rdfs:comment "Runa scelta dal giocatore"@it ;
          rdfs:label "Rune"@it .
 
@@ -916,6 +918,7 @@ LoL:Rune_Page rdf:type owl:Class ;
                                     owl:qualifiedCardinality "3"^^xsd:nonNegativeInteger ;
                                     owl:onClass LoL:Shard
                                   ] ;
+              rdfs:subClassOf LoL:League_Of_Legends ;
               rdfs:comment "Insieme di rune scelte dal giocatore"@it ;
               rdfs:label "Rune_Page"@it .
 
@@ -944,6 +947,7 @@ LoL:Shard rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Statistiche
 LoL:Statistiche rdf:type owl:Class ;
+                rdfs:subClassOf LoL:League_Of_Legends ;
                 rdfs:comment "Statistiche del campione"@it ;
                 rdfs:label "Statistiche"@it .
 
@@ -951,6 +955,7 @@ LoL:Statistiche rdf:type owl:Class ;
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Stivale
 LoL:Stivale rdf:type owl:Class ;
             rdfs:subClassOf LoL:Oggetto ;
+            owl:disjointWith LOL:Oggetto_Leggendario ;
             rdfs:comment "Oggetto di tipo stivale"@it ;
             rdfs:label "Stivale"@it .
 
@@ -966,6 +971,7 @@ LoL:Summoner_Spells rdf:type owl:Class ;
                                                       LOL:Teleport
                                                     )
                                         ] ;
+                    rdfs:subClassOf LoL:League_Of_Legends ;
                     rdfs:comment "Incantesimi speciali che ogni giocatore può scegliere prima di iniziare una partita"@it ;
                     rdfs:label "Summoner Spells"@it .
 
@@ -995,16 +1001,22 @@ LoL:Ultimate rdf:type owl:Class ;
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Event
-LoL:participation:Event rdf:type owl:Class .
+LoL:participation:Event rdf:type owl:Class ;
+                        rdfs:comment "Event in Participant Role Pattern"@en ;
+                        rdfs:label "participation:Event"@en .
 
 
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#participation:Object
-LoL:participation:Object rdf:type owl:Class .
+LoL:participation:Object rdf:type owl:Class ;
+                         rdfs:comment "Object in Participant Role Pattern"@en ;
+                         rdfs:label "participation:Object"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Oggetto_Leggendario
 LOL:Oggetto_Leggendario rdf:type owl:Class ;
-                        rdfs:subClassOf LoL:Oggetto .
+                        rdfs:subClassOf LoL:Oggetto ;
+                        rdfs:comment "Represents Legendary Items in the game"@en ;
+                        rdfs:label "Legendary Item"@en .
 
 
 ###  https://alhakam.github.io/dot/#Damage
@@ -1159,6 +1171,7 @@ LoL:Elettrocute rdf:type owl:NamedIndividual ,
 LoL:Faker rdf:type owl:NamedIndividual ,
                    LoL:Player ;
           owl:sameAs wd:Q15618298 ;
+          LoL:rank "Challenger" ;
           rdfs:label "Faker"@en ,
                      "Korean Professional league of legends player"@en .
 
@@ -1357,6 +1370,9 @@ LoL:Zed rdf:type owl:NamedIndividual ,
                         LoL:Zed_Ultimate ,
                         LoL:Zed_W ,
                         LoL:Zed_passive ;
+        LOL:ArmorValue "32.0"^^xsd:float ;
+        LOL:AttackDamage "63.0"^^xsd:float ;
+        LOL:HitPoints "654.0"^^xsd:float ;
         rdfs:comment "League of Legends Champion"@en ;
         rdfs:label "Zed"@en .
 
@@ -1393,6 +1409,9 @@ LoL:Zed_W rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#Zed_passive
 LoL:Zed_passive rdf:type owl:NamedIndividual ,
                          LoL:Passiva ;
+                LoL:ability_description """\"Innate: Zed's basic attacks against targets below 50% maximum health are empowered to deal 6 / 8 / 10% (based on level) of the target's maximum health as bonus magic damage.
+Against Monster icon monsters, Contempt for the Weak deals 200% damage, capped at 300.
+Contempt for the Weak cannot occur on the same Champion icon champion more than once every few seconds.\"""" ;
                 rdfs:comment "Zed Passive ability"@en ;
                 rdfs:label "Contempt for the Weak"@en .
 
@@ -1402,6 +1421,10 @@ LoL:kha_zix rdf:type owl:NamedIndividual ,
                      LoL:Assassin ,
                      LoL:Campione ;
             LoL:same_class LoL:Zed ;
+            LOL:ArmorValue "36.0"^^xsd:float ;
+            LOL:AttackDamage "60.0"^^xsd:float ;
+            LOL:HitPoints "643.0"^^xsd:float ;
+            LOL:MagicResist "32.0"^^xsd:float ;
             rdfs:comment "League of Legends Champion"@en ;
             rdfs:label "Kha'Zix"@en .
 
@@ -1426,11 +1449,43 @@ LOL:Adcarry rdf:type owl:NamedIndividual ,
             rdfs:label "ADC"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Baron_Nashor
+LOL:Baron_Nashor rdf:type owl:NamedIndividual ,
+                          LoL:NPC ;
+                 rdfs:comment "Monster, defeating it provides a buff to the whole squad"@en ;
+                 rdfs:label "Baron Nashor"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Barrier
 LOL:Barrier rdf:type owl:NamedIndividual ,
                      LoL:Summoner_Spells ;
             rdfs:comment "Summoner Spell Barrier"@en ;
             rdfs:label "Barrier"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Boots
+LOL:Boots rdf:type owl:NamedIndividual ,
+                   LoL:Stivale ;
+          LoL:has_price 300 ;
+          LOL:MovementSpeed "25.0"^^xsd:float ;
+          rdfs:comment "Item that gives player extra movement speed"@en ;
+          rdfs:label "Boots"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Caster_Minion
+LOL:Caster_Minion rdf:type owl:NamedIndividual ,
+                           LoL:NPC ;
+                  rdfs:comment "NPC ranged, last hitting it provides gold to the player"@en ;
+                  rdfs:label "Caster Minion"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Deathfire_Grasp
+LOL:Deathfire_Grasp rdf:type owl:NamedIndividual ,
+                             LoL:Oggetto_Rimosso ;
+                    LoL:has_price 3000 ;
+                    LOL:AbilityPower "120.0"^^xsd:float ;
+                    rdfs:comment "Removed Item"@en ;
+                    rdfs:label "Deathfire Grasp"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Exhaust
@@ -1461,11 +1516,76 @@ LOL:Heal rdf:type owl:NamedIndividual ,
          rdfs:label "Heal"@en .
 
 
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Jax
+LOL:Jax rdf:type owl:NamedIndividual ,
+                 LoL:Bruiser ,
+                 LoL:Campione ;
+        LOL:ArmorValue "36.0"^^xsd:float ;
+        LOL:AttackDamage "68.0"^^xsd:float ;
+        LOL:HitPoints "665.0"^^xsd:float ;
+        rdfs:comment "Playable Champion"@en ;
+        rdfs:label "Jax"@en .
+
+
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Jungle
 LOL:Jungle rdf:type owl:NamedIndividual ,
                     LoL:Ruoli ;
            rdfs:comment "Represents the Jungler role"@en ;
            rdfs:label "Jungler"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Krug
+LOL:Krug rdf:type owl:NamedIndividual ,
+                  LoL:NPC ;
+         rdfs:comment "Monster, defeating it gives gold and experience"@en ;
+         rdfs:label "Krug"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Leona
+LOL:Leona rdf:type owl:NamedIndividual ,
+                   LoL:Campione ,
+                   LoL:Support ,
+                   LoL:Tank ;
+          LoL:lore "Imbued with the fire of the sun, Leona is a holy warrior of the Solari who defends Mount Targon with her Zenith Blade and the Shield of Daybreak. Her skin shimmers with starfire while her eyes burn with the power of the celestial Aspect within her. Armored in gold and bearing a terrible burden of ancient knowledge, Leona brings enlightenment to some, death to others." ;
+          LOL:ArmorValue "47.0"^^xsd:float ;
+          LOL:AttackDamage "60.0"^^xsd:float ;
+          LOL:HitPoints "646.0"^^xsd:float ;
+          LOL:MagicResist "32.0"^^xsd:float ;
+          rdfs:comment "Playable Champion"@en ;
+          rdfs:label "Leona"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Malphite
+LOL:Malphite rdf:type owl:NamedIndividual ,
+                      LoL:Campione ,
+                      wd:Q1964626 ;
+             LOL:ArmorValue "37.0"^^xsd:float ;
+             LOL:HitPoints "644.0"^^xsd:float ;
+             LOL:MagicResist "28.0"^^xsd:float ;
+             rdfs:comment "Playable Champion"@en ;
+             rdfs:label "Malphite"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#MovementSpeedFlat
+LOL:MovementSpeedFlat rdf:type owl:NamedIndividual ,
+                               LoL:Movement ;
+                      rdfs:comment "Entity Statistic"@en ;
+                      rdfs:label "MovementSpeedFlat"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#MovementSpeedScaling
+LOL:MovementSpeedScaling rdf:type owl:NamedIndividual ,
+                                  LoL:Movement ;
+                         rdfs:comment "Entity Statistic"@en ;
+                         rdfs:label "MovementSpeedScaling"@en .
+
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Orianna
+LOL:Orianna rdf:type owl:NamedIndividual ,
+                     LoL:Campione ,
+                     LoL:Mage ;
+            rdfs:comment "Playable Champion"@en ;
+            rdfs:label "Orianna"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Overheal
@@ -1480,11 +1600,19 @@ LOL:Overheal rdf:type owl:NamedIndividual ,
 LOL:Ruler rdf:type owl:NamedIndividual ,
                    LoL:Player ;
           owl:sameAs wd:Q97420245 ;
+          LoL:rank "Challenger" ;
           rdfs:comment "Korean League of Legends Professional Player"@en ;
           rdfs:label "Ruler"@en .
 
 
 ###  https://www.wikidata.org/wiki/Q97420245
+
+###  http://www.semanticweb.org/gfazor/ontologies/LOL#Super_Minion
+LOL:Super_Minion rdf:type owl:NamedIndividual ,
+                          LoL:NPC ;
+                 rdfs:comment "NPC, spawns when an inibithor is destroyed"@en ;
+                 rdfs:label "Super Minion"@en .
+
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Support_role
 LOL:Support_role rdf:type owl:NamedIndividual ,
@@ -1554,7 +1682,9 @@ LOL:Zeus rdf:type owl:NamedIndividual ,
                                                                                LoL:Oggetto ;
                                                                       LoL:has_price 2900 ;
                                                                       LOL:AttackSpeed "0.4"^^xsd:float ;
-                                                                      LOL:CritChance "0.2"^^xsd:float .
+                                                                      LOL:CritChance "0.2"^^xsd:float ;
+                                                                      rdfs:comment "Purchasable Item"@en ;
+                                                                      rdfs:label "Runaan's Hurricane"@en .
 
 
 ###  https://www.wikidata.org/wiki/Q105488493
@@ -1581,14 +1711,6 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
 ] .
 
 
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( LoL:Oggetto_Rimosso
-                LoL:Stivale
-                LOL:Oggetto_Leggendario
-              )
-] .
-
-
 [ rdf:type owl:AllDifferent ;
   owl:distinctMembers ( LoL:Domination
                         LoL:Inspiration
@@ -1596,19 +1718,6 @@ wd:Q97420245 rdf:type owl:NamedIndividual .
                         LoL:Resolve
                         LoL:Sorcery
                       )
-] .
-
-
-[ rdf:type owl:AllDisjointProperties ;
-  owl:members ( LoL:ability_description
-                LoL:has_price
-                LoL:lore
-                LoL:match_date
-                LoL:number_player
-                LoL:rank
-                LoL:release_date
-                LOL:Statistics
-              )
 ] .
 
 
