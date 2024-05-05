@@ -1,8 +1,6 @@
 @prefix : <http://www.semanticweb.org/gfazor/ontologies/LOL#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix spin: <https://spinrdf.org/spin#> .
 @prefix so: <https://www.bbc.co.uk/ontologies/sport-ontology/#> .
-@prefix totl: <http://data.totl.net/game.rdf#> .
 @prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix LOL: <http://www.semanticweb.org/gfazor/ontologies/LOL#> .
 @prefix dot: <https://alhakam.github.io/dot/#> .
@@ -11,7 +9,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <https://spinrdf.org/spin#> .
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix totl: <http://data.totl.net/game.rdf#> .
 @prefix vann: <http://www.semanticweb.org/gfazor/ontologies/LOL#vann:> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
@@ -533,8 +533,8 @@ LOL:rank rdf:type owl:DatatypeProperty ;
 
 ###  http://data.totl.net/game.rdf#Player
 totl:Player rdf:type owl:Class ;
-                                       owl:equivalentClass wd:Q5276395 ;
-                                       rdfs:subClassOf LOL:participation:Object .
+            owl:equivalentClass wd:Q5276395 ;
+            rdfs:subClassOf LOL:participation:Object .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Abilità
@@ -1019,20 +1019,20 @@ LOL:participation:Object rdf:type owl:Class ;
                          rdfs:label "participation:Object"@en .
 
 
-###  dot:Damage
+###  https://alhakam.github.io/dot/#Damage
 dot:Damage rdf:type owl:Class ;
-                                        rdfs:subClassOf LOL:Statistiche .
+           rdfs:subClassOf LOL:Statistiche .
 
 
 ###  https://spinrdf.org/spin#MagicProperty
 spin:MagicProperty rdf:type owl:Class ;
-                 rdfs:subClassOf LOL:Statistiche .
+                   rdfs:subClassOf LOL:Statistiche .
 
 
 ###  https://www.bbc.co.uk/ontologies/sport-ontology/#Match
 so:Match rdf:type owl:Class ;
-                                        owl:equivalentClass wd:Q12362855 ;
-                                        rdfs:subClassOf LOL:participation:Event .
+         owl:equivalentClass wd:Q12362855 ;
+         rdfs:subClassOf LOL:participation:Event .
 
 
 ###  https://www.wikidata.org/wiki/Q1062345
@@ -1276,11 +1276,12 @@ LOL:Howling_Abyss rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Infinity_Edge
 LOL:Infinity_Edge rdf:type owl:NamedIndividual ,
                            LOL:Oggetto ;
+                  LOL:has_stat LOL:Attack_Damage ;
                   LOL:AttackDamage "60.0"^^xsd:float ;
                   LOL:CritChance "0.2"^^xsd:float ;
                   LOL:has_price 3500 ;
-                  rdfs:comment "Infinity Edge"@en ,
-                               "League of Legends Purchasable Item"@en .
+                  rdfs:comment "League of Legends Purchasable Item"@en ;
+                  rdfs:label "Infinity Edge"@en .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Inspiration
@@ -1362,6 +1363,7 @@ LOL:Magic_Resist rdf:type owl:NamedIndividual ,
 LOL:Malphite rdf:type owl:NamedIndividual ,
                       LOL:Campione ,
                       wd:Q1964626 ;
+             LOL:scales_with_stat LOL:Ability_Power ;
              LOL:ArmorValue "37.0"^^xsd:float ;
              LOL:HitPoints "644.0"^^xsd:float ;
              LOL:MagicResist "28.0"^^xsd:float ;

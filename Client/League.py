@@ -99,7 +99,7 @@ footer = """
 }
 </style>
 <div class="footer">
-    <p>© 2024 Gamba di squalo da 6 esami a giugno. All rights reserved.</p>
+    <p>© 2024 Progetto di Modellazione Concettuale per il Web Semantico. All rights reserved.</p>
 </div>
 
 """

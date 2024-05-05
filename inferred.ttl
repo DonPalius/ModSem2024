@@ -528,15 +528,6 @@
                                        rdfs:subClassOf <http://www.semanticweb.org/gfazor/ontologies/LOL#participation:Object> .
 
 
-###  http://www.semanticweb.org/gfazor/ontologies/LOL#Player
-<http://www.semanticweb.org/gfazor/ontologies/LOL#Player> rdf:type owl:Class ;
-                                                          owl:equivalentClass <https://www.wikidata.org/wiki/Q5276395> .
-
-
-###  https://www.wikidata.org/wiki/Q5276395
-<https://www.wikidata.org/wiki/Q5276395> rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Abilità
 <http://www.semanticweb.org/gfazor/ontologies/LOL#Abilità> rdf:type owl:Class ;
                                                            owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -740,15 +731,6 @@
                                                          rdfs:subClassOf <http://www.semanticweb.org/gfazor/ontologies/LOL#participation:Event> ;
                                                          rdfs:comment "Represents a game match played"@en ;
                                                          rdfs:label "Match"@en .
-
-
-###  https://www.bbc.co.uk/ontologies/sport-ontology/#Match
-<https://www.bbc.co.uk/ontologies/sport-ontology/#Match> rdf:type owl:Class ;
-                                                         owl:equivalentClass <https://www.wikidata.org/wiki/Q12362855> .
-
-
-###  https://www.wikidata.org/wiki/Q12362855
-<https://www.wikidata.org/wiki/Q12362855> rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Match_role
@@ -1239,8 +1221,6 @@
 
 
 ###  https://www.wikidata.org/wiki/Q15618298
-<https://www.wikidata.org/wiki/Q15618298> rdf:type owl:NamedIndividual .
-
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Flash
 <http://www.semanticweb.org/gfazor/ontologies/LOL#Flash> rdf:type owl:NamedIndividual ,
@@ -1287,6 +1267,7 @@
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Infinity_Edge
 <http://www.semanticweb.org/gfazor/ontologies/LOL#Infinity_Edge> rdf:type owl:NamedIndividual ,
                                                                           <http://www.semanticweb.org/gfazor/ontologies/LOL#Oggetto> ;
+                                                                 <http://www.semanticweb.org/gfazor/ontologies/LOL#has_stat> <http://www.semanticweb.org/gfazor/ontologies/LOL#Attack_Damage> ;
                                                                  <http://www.semanticweb.org/gfazor/ontologies/LOL#AttackDamage> "60.0"^^xsd:float ;
                                                                  <http://www.semanticweb.org/gfazor/ontologies/LOL#CritChance> "0.2"^^xsd:float ;
                                                                  <http://www.semanticweb.org/gfazor/ontologies/LOL#has_price> 3500 ;
@@ -1488,8 +1469,6 @@
 
 
 ###  https://www.wikidata.org/wiki/Q97420245
-<https://www.wikidata.org/wiki/Q97420245> rdf:type owl:NamedIndividual .
-
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Slot_1_as_shard
 <http://www.semanticweb.org/gfazor/ontologies/LOL#Slot_1_as_shard> rdf:type owl:NamedIndividual ,
@@ -1661,8 +1640,6 @@ Contempt for the Weak cannot occur on the same Champion icon champion more than 
 
 
 ###  https://www.wikidata.org/wiki/Q105488493
-<https://www.wikidata.org/wiki/Q105488493> rdf:type owl:NamedIndividual .
-
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#kha_zix
 <http://www.semanticweb.org/gfazor/ontologies/LOL#kha_zix> rdf:type owl:NamedIndividual ,
