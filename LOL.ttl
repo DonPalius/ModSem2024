@@ -1,9 +1,11 @@
-@prefix : <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/> .
+@prefix : <http://www.semanticweb.org/gfazor/ontologies/LOL#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix ld: <https://spinrdf.org/spin#> .
+@prefix spin: <https://spinrdf.org/spin#> .
+@prefix so: <https://www.bbc.co.uk/ontologies/sport-ontology/#> .
+@prefix totl: <http://data.totl.net/game.rdf#> .
 @prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix LOL: <http://www.semanticweb.org/gfazor/ontologies/LOL#> .
-@prefix LoL: <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL#> .
+@prefix dot: <https://alhakam.github.io/dot/#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -13,7 +15,7 @@
 @prefix vann: <http://www.semanticweb.org/gfazor/ontologies/LOL#vann:> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
-@base <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/> .
+@base <http://www.semanticweb.org/gfazor/ontologies/LOL#> .
 
 <http://www.semanticweb.org/gfazor/ontologies/LOL> rdf:type owl:Ontology ;
                                                     dc:creator "Andrea Paletto" ,
@@ -530,7 +532,7 @@ LOL:rank rdf:type owl:DatatypeProperty ;
 #################################################################
 
 ###  http://data.totl.net/game.rdf#Player
-<http://data.totl.net/game.rdf#Player> rdf:type owl:Class ;
+totl:Player rdf:type owl:Class ;
                                        owl:equivalentClass wd:Q5276395 ;
                                        rdfs:subClassOf LOL:participation:Object .
 
@@ -556,7 +558,7 @@ LOL:Assassin rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Attack
 LOL:Attack rdf:type owl:Class ;
-           owl:equivalentClass <https://alhakam.github.io/dot/#Damage> ,
+           owl:equivalentClass dot:Damage ,
                                [ rdf:type owl:Class ;
                                  owl:oneOf ( LOL:Attack_Damage
                                              LOL:Attack_Speed
@@ -695,7 +697,7 @@ LOL:Mage rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Magic
 LOL:Magic rdf:type owl:Class ;
-          owl:equivalentClass ld:MagicProperty ,
+          owl:equivalentClass spin:MagicProperty ,
                               [ rdf:type owl:Class ;
                                 owl:oneOf ( LOL:Ability_Haste
                                             LOL:Ability_Power
@@ -724,7 +726,7 @@ LOL:Marksman rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Match
 LOL:Match rdf:type owl:Class ;
-          owl:equivalentClass <https://www.bbc.co.uk/ontologies/sport-ontology/#Match> ,
+          owl:equivalentClass so:Match ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty LOL:has_modality ;
                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1017,20 +1019,20 @@ LOL:participation:Object rdf:type owl:Class ;
                          rdfs:label "participation:Object"@en .
 
 
-###  https://alhakam.github.io/dot/#Damage
-<https://alhakam.github.io/dot/#Damage> rdf:type owl:Class ;
+###  dot:Damage
+dot:Damage rdf:type owl:Class ;
                                         rdfs:subClassOf LOL:Statistiche .
 
 
 ###  https://spinrdf.org/spin#MagicProperty
-ld:MagicProperty rdf:type owl:Class ;
+spin:MagicProperty rdf:type owl:Class ;
                  rdfs:subClassOf LOL:Statistiche .
 
 
 ###  https://www.bbc.co.uk/ontologies/sport-ontology/#Match
-<https://www.bbc.co.uk/ontologies/sport-ontology/#Match> rdf:type owl:Class ;
-                                                         owl:equivalentClass wd:Q12362855 ;
-                                                         rdfs:subClassOf LOL:participation:Event .
+so:Match rdf:type owl:Class ;
+                                        owl:equivalentClass wd:Q12362855 ;
+                                        rdfs:subClassOf LOL:participation:Event .
 
 
 ###  https://www.wikidata.org/wiki/Q1062345
@@ -1753,6 +1755,10 @@ LOL:Lethality rdfs:comment "Armor Penetration Flat (lethality) value"@en ,
 
 <http://www.semanticweb.org/gfazor/ontologies/LOL/h> rdf:type swrl:Variable .
 
+<http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/o> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/v> rdf:type swrl:Variable .
+
 <http://www.semanticweb.org/gfazor/ontologies/LOL/e> rdf:type swrl:Variable .
 
 <http://www.semanticweb.org/gfazor/ontologies/LOL/v> rdf:type swrl:Variable .
@@ -1831,6 +1837,45 @@ LOL:Lethality rdfs:comment "Armor Penetration Flat (lethality) value"@en ,
                            swrl:propertyPredicate LOL:playedInRole ;
                            swrl:argument1 <http://www.semanticweb.org/gfazor/ontologies/LOL/h> ;
                            swrl:argument2 <http://www.semanticweb.org/gfazor/ontologies/LOL/k>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "If an item has a value for the data property has_price greather than 2500, then the item belongs to the Legendary Item class" ;
+   rdfs:label "Legendary Item" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate LOL:Oggetto ;
+                           swrl:argument1 <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/o>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate LOL:has_price ;
+                                      swrl:argument1 <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/o> ;
+                                      swrl:argument2 <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/v>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                 swrl:builtin swrlb:greaterThan ;
+                                                 swrl:arguments [ rdf:type rdf:List ;
+                                                                  rdf:first <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/v> ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first 2500 ;
+                                                                             rdf:rest rdf:nil
+                                                                           ]
+                                                                ]
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate LOL:Oggetto_Leggendario ;
+                           swrl:argument1 <http://www.semanticweb.org/drunkfazor/ontologies/2024/2/LoL/o>
                          ] ;
                rdf:rest rdf:nil
              ]
@@ -1942,45 +1987,6 @@ LOL:Lethality rdfs:comment "Armor Penetration Flat (lethality) value"@en ,
                            swrl:propertyPredicate LOL:has_stat ;
                            swrl:argument1 <urn:swrl:var#o> ;
                            swrl:argument2 LOL:Attack_Speed
-                         ] ;
-               rdf:rest rdf:nil
-             ]
- ] .
-
-[ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "" ;
-   rdfs:label "S1" ;
-   rdf:type swrl:Imp ;
-   swrl:body [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LOL:Oggetto ;
-                           swrl:argument1 <urn:swrl:var#o>
-                         ] ;
-               rdf:rest [ rdf:type swrl:AtomList ;
-                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
-                                      swrl:propertyPredicate LOL:has_price ;
-                                      swrl:argument1 <urn:swrl:var#o> ;
-                                      swrl:argument2 <urn:swrl:var#v>
-                                    ] ;
-                          rdf:rest [ rdf:type swrl:AtomList ;
-                                     rdf:first [ rdf:type swrl:BuiltinAtom ;
-                                                 swrl:builtin swrlb:greaterThan ;
-                                                 swrl:arguments [ rdf:type rdf:List ;
-                                                                  rdf:first <urn:swrl:var#v> ;
-                                                                  rdf:rest [ rdf:type rdf:List ;
-                                                                             rdf:first 2500 ;
-                                                                             rdf:rest rdf:nil
-                                                                           ]
-                                                                ]
-                                               ] ;
-                                     rdf:rest rdf:nil
-                                   ]
-                        ]
-             ] ;
-   swrl:head [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate LOL:Oggetto_Leggendario ;
-                           swrl:argument1 <urn:swrl:var#o>
                          ] ;
                rdf:rest rdf:nil
              ]
