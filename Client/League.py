@@ -46,7 +46,7 @@ option_to_function = {
     "Get Assassin Champions": lol_queries.get_assassin_champions,
     "Get List of Players that played a match": lol_queries.get_players_list,
     "Visualize Abilities of Zed": lol_queries.get_champion_abilities,
-    "Get Tank Count": lol_queries.get_tank_champions_count,
+    "Get the number of Tank Champion": lol_queries.get_tank_champions_count,
     "Get Domination Runes": lol_queries.get_dominance_runes,
     # "Get Loadout for Player (Match Name Required)": lambda: lol_queries.get_loadout_for_player_in_match(st.text_input("Enter Player Name:"), st.text_input("Enter Match Name:")),
     "Get Attack Stat Objects": lol_queries.get_attack_stat_objects,
@@ -62,7 +62,7 @@ with tabs[0]:  # Champion Information Tab
     selected_option = st.selectbox("Select an action:", [
         "Get Assassin Champions",
         "Visualize Abilities of Zed",
-        "Get Tank Count",
+        "Get the number of Tank Champion",
         "Get Ability Power Scaling Champions"
     ])
     run_query(selected_option)
