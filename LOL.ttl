@@ -398,7 +398,8 @@ LOL:same_class rdf:type owl:ObjectProperty ,
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#scales_with_stat
 LOL:scales_with_stat rdf:type owl:ObjectProperty ;
-                     rdfs:domain LOL:Abilità ;
+                     rdfs:domain LOL:Abilità ,
+                                 LOL:Campione ;
                      rdfs:range LOL:Statistiche ;
                      owl:propertyChainAxiom ( LOL:has_ability
                                               LOL:scales_with_stat
