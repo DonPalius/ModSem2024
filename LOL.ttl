@@ -123,7 +123,9 @@ LOL:contains_rune rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#hasPart
 LOL:hasPart rdf:type owl:ObjectProperty ;
-            owl:inverseOf LOL:isPartOf .
+            owl:inverseOf LOL:isPartOf ;
+           rdfs:comment "Pattern PartOf"@it ;
+           rdfs:label "hasPart"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#has_ability
@@ -210,7 +212,10 @@ LOL:in_path rdf:type owl:ObjectProperty ;
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#isPartOf
-LOL:isPartOf rdf:type owl:ObjectProperty .
+LOL:isPartOf rdf:type owl:ObjectProperty ;
+           rdfs:comment "Pattern PartOf"@it ;
+           rdfs:label "isPartOf"@it .
+
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#is_keystone_of
@@ -262,7 +267,9 @@ LOL:loadoutOfParticipant rdf:type owl:ObjectProperty ;
 LOL:objectParticipating rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf owl:topObjectProperty ;
                         rdfs:domain LOL:ParticipantRole ;
-                        rdfs:range LOL:participation:Object .
+                        rdfs:range LOL:participation:Object ;
+                         rdfs:comment "Pattern Participant Role"@it ;
+                         rdfs:label "objectParticipating"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#part_of_class
@@ -410,12 +417,16 @@ LOL:scales_with_stat rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:hasParticipant
 LOL:participation:hasParticipant rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf owl:topObjectProperty .
+                                 rdfs:subPropertyOf owl:topObjectProperty ;
+                                 rdfs:comment "Pattern Participant Role"@it ;
+                                 rdfs:label "hasParticipant"@it .
 
 
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#participation:isParticipatingIn
 LOL:participation:isParticipatingIn rdf:type owl:ObjectProperty ;
-                                    rdfs:subPropertyOf owl:topObjectProperty .
+                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                    rdfs:comment "Pattern Participant Role"@it ;
+                                    rdfs:label "isParticipatingIn"@it .
 
 
 #################################################################
