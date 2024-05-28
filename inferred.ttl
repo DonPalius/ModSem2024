@@ -531,8 +531,8 @@
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Abilità
 <http://www.semanticweb.org/gfazor/ontologies/LOL#Abilità> rdf:type owl:Class ;
                                                            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/gfazor/ontologies/LOL#scales_with_stat> ;
-                                                                                 owl:someValuesFrom <http://www.semanticweb.org/gfazor/ontologies/LOL#Statistiche>
+                                                                                 owl:onProperty <http://www.semanticweb.org/gfazor/ontologies/LOL#ability_of> ;
+                                                                                 owl:someValuesFrom <http://www.semanticweb.org/gfazor/ontologies/LOL#Campione>
                                                                                ] ;
                                                            rdfs:subClassOf <http://www.semanticweb.org/gfazor/ontologies/LOL#League_Of_Legends> ;
                                                            rdfs:comment "Rappresenta le abilità utilizzabili da un campione"@it ;
