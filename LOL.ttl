@@ -47,7 +47,7 @@ dc:description rdf:type owl:AnnotationProperty .
 dc:title rdf:type owl:AnnotationProperty .
 
 
-###  http://swrl.stanford.edu/ontologies/3.3/swrla#isRuleEnabled
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
 swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
@@ -532,7 +532,7 @@ LOL:rank rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://data.totl.net/game#Player
+###  http://data.totl.net/game.rdf#Player
 totl:Player rdf:type owl:Class ;
             owl:equivalentClass wd:Q5276395 ;
             rdfs:subClassOf LOL:participation:Object .
@@ -541,8 +541,8 @@ totl:Player rdf:type owl:Class ;
 ###  http://www.semanticweb.org/gfazor/ontologies/LOL#Abilità
 LOL:Abilità rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty LOL:scales_with_stat ;
-                                  owl:someValuesFrom LOL:Statistiche
+                                  owl:onProperty LOL:ability_of ;
+                                  owl:someValuesFrom LOL:Campione
                                 ] ;
             rdfs:subClassOf LOL:League_Of_Legends ;
             rdfs:comment "Rappresenta le abilità utilizzabili da un campione"@it ;
