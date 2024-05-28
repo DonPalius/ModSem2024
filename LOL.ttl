@@ -47,7 +47,7 @@ dc:description rdf:type owl:AnnotationProperty .
 dc:title rdf:type owl:AnnotationProperty .
 
 
-###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+###  http://swrl.stanford.edu/ontologies/3.3/swrla#isRuleEnabled
 swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
@@ -532,7 +532,7 @@ LOL:rank rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://data.totl.net/game.rdf#Player
+###  http://data.totl.net/game#Player
 totl:Player rdf:type owl:Class ;
             owl:equivalentClass wd:Q5276395 ;
             rdfs:subClassOf LOL:participation:Object .
