@@ -1033,18 +1033,24 @@ LOL:participation:Object rdf:type owl:Class ;
 
 ###  https://alhakam.github.io/dot/#Damage
 dot:Damage rdf:type owl:Class ;
-           rdfs:subClassOf LOL:Statistiche .
+           rdfs:subClassOf LOL:Statistiche ;
+          rdfs:comment "Danno fisico"@it ;
+          rdfs:label "Damage"@it .
 
 
 ###  https://spinrdf.org/spin#MagicProperty
 spin:MagicProperty rdf:type owl:Class ;
-                   rdfs:subClassOf LOL:Statistiche .
+                   rdfs:subClassOf LOL:Statistiche;
+                   rdfs:comment "Proprietá magiche"@it ;
+                    rdfs:label "MagicProperty"@it .
 
 
 ###  https://www.bbc.co.uk/ontologies/sport-ontology/#Match
 so:Match rdf:type owl:Class ;
          owl:equivalentClass wd:Q12362855 ;
-         rdfs:subClassOf LOL:participation:Event .
+         rdfs:subClassOf LOL:participation:Event ;
+         rdfs:comment "Partita"@it ;
+         rdfs:label "Match"@it .
 
 
 ###  https://www.wikidata.org/wiki/Q1062345
