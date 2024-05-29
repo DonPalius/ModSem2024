@@ -69,7 +69,7 @@ class LoLQueries:
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX LoL: <http://www.semanticweb.org/gfazor/ontologies/LOL#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-        SELECT (COUNT(?y) AS?count)
+        SELECT (COUNT(?y) AS?label)
         WHERE {
           ?x rdf:type?y.
             VALUES?y {LoL:Tank}.
@@ -133,7 +133,7 @@ class LoLQueries:
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX LoL: <http://www.semanticweb.org/gfazor/ontologies/LOL#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-        SELECT?label?comment
+        SELECT distinct ?label?comment
         WHERE {
           ?x rdf:type LoL:Campione;
             LoL:scales_with_stat?y.
