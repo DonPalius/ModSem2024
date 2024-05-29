@@ -14,17 +14,20 @@ st.title('League of Legends Ontology')
 def get_table_from_results(results):
     # Define the headers for the DataFrame
     headers = ["Label", "Comment"]
-    
+
     # Initialize an empty DataFrame with the specified headers
     df = pd.DataFrame(columns=headers)
 
     # Iterate through each result and extract the label and comment
+    rows = []
     for binding in results["results"]["bindings"]:
-        label = binding.get("label", {}).get("value") 
+        label = binding.get("label", {}).get("value")
         comment = binding.get("comment", {}).get("value")
-        
-        # Append each row to the DataFrame
-        df = df.append({"Label": label, "Comment": comment}, ignore_index=True)
+        row = {"Label": label, "Comment": comment}
+        rows.append(row)
+
+    # Concatenate the rows to the existing DataFrame
+    df = pd.concat([df, pd.DataFrame(rows)], ignore_index=True)
 
     # Display the DataFrame in the Streamlit app
     st.dataframe(df, use_container_width=True)
